@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Card Randomizer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='javascript/img.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <h1><img src="{{ url_for('image.static', filename='DLX Design Lab Logo.png') }}" width="80px"></h1>
+            <nav>
+                <ul>
+                    <a href="{{ url_for('home') }}">home</a>
+                    <a href="{{ url_for('index') }}">index</a>
+                </ul>
+            </nav>
+        </header>      
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

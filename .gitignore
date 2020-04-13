@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.flaskenv
+
+.vscode/
+
+00_memo.txt
