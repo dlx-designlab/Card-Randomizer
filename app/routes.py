@@ -1,3 +1,5 @@
+# all rights reserved DLX Design Lab
+
 from flask import render_template, url_for
 from app import app
 from app import setBlueprint
