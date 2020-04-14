@@ -1,14 +1,47 @@
-function randomize_image() {
+/* random generater : character_cards */
+function randomize_image_character_cards() {
     $.ajax({
         type: 'GET',
-        url: "/randomcards",
+        url: "/randomNum_character_cards",
         contentType: 'application/json;charset=UTF-8',
         success: function(result) {
-            var imgName = "img_" + result + ".jpg";
-            document.getElementById("imageid").src= "../../static/image" + "/" + imgName ;  
+            var imgName = "character_card-" + result + ".jpg";
+            document.getElementById("character_cards_imageid").src= "../../static/image/character_cards" + "/" + imgName ;  
         },
         error: function(result) {
               document.getElementById("cards").innerHTML = "ERROR!";
         }
     });
-  };
+};
+
+/* random generater : context_cards */
+function randomize_image_context_cards() {
+    $.ajax({
+        type: 'GET',
+        url: "/randomNum_context_cards",
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            var imgName = "context_card-" + result + ".jpg";
+            document.getElementById("context_cards_imageid").src= "../../static/image/context_cards" + "/" + imgName ;  
+        },
+        error: function(result) {
+              document.getElementById("cards").innerHTML = "ERROR!";
+        }
+    });
+};
+
+/* random generater : parameter_cards */
+function randomize_image_parameter_cards() {
+    $.ajax({
+        type: 'GET',
+        url: "/randomNum_parameter_cards",
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            var imgName = "parameter_card-" + result + ".jpg";
+            document.getElementById("parameter_cards_imageid").src= "../../static/image/parameter_cards" + "/" + imgName ;  
+        },
+        error: function(result) {
+              document.getElementById("cards").innerHTML = "ERROR!";
+        }
+    });
+};
