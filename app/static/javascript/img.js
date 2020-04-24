@@ -45,3 +45,19 @@ function randomize_image_parameter_cards() {
         }
     });
 };
+
+/* random generater : rammojammo_cards */
+function randomize_image_rammojammo_cards() {
+    $.ajax({
+        type: 'GET',
+        url: "/randomNum_rammojammo_cards",
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            var imgName = "rammojammo_card-" + result + ".jpg";
+            document.getElementById("rammojammo_cards_imageid").src= "../../static/image/rammojammo_cards" + "/" + imgName ;
+        },
+        error: function(result) {
+              document.getElementById("cards").innerHTML = "ERROR!";
+        }
+    });
+};

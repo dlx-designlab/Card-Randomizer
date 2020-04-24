@@ -15,10 +15,16 @@
                     <a href="{{ url_for('cards01') }}">character cards</a>
                     <a href="{{ url_for('cards02') }}">context cards</a>
                     <a href="{{ url_for('cards03') }}">parameter cards</a>
+                    <a href="{{ url_for('cards04') }}">rammojammo cards</a>
                 </ul>
             </nav>
         </header>      
         <hr>
+
         {% block content %}{% endblock %}
+        
+        <footer>
+            <small class="copyright">&copy; 2020 DLX Design Lab</small>
+        </footer>
     </body>
 </html>

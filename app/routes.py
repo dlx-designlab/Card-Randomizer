@@ -35,6 +35,10 @@ def cards02():
 def cards03():
     return render_template('cards03.html')
 
+# rammojammo_cards page
+@app.route('/cards04', methods=['GET', 'POST'])
+def cards04():
+    return render_template('cards04.html')
 
 #################################################################################
 
@@ -75,6 +79,22 @@ def randomize_number_context_cards():
 def randomize_number_parameter_cards():
     global randomize_cards_cache
     n = 18
+    l = len(randomize_cards_cache)
+    while l < n:
+        r = random.randint(1,n)
+        if r not in randomize_cards_cache:
+            randomize_cards_cache.append(r)
+            return str(r)
+    else:
+        randomize_cards_cache.clear()
+        randomize_cards_cache.append(1)
+        return str(1)
+
+# random number for rammojammo cards
+@app.route('/randomNum_rammojammo_cards', methods=['GET'])
+def randomize_number_rammojammo_cards():
+    global randomize_cards_cache
+    n = 5
     l = len(randomize_cards_cache)
     while l < n:
         r = random.randint(1,n)

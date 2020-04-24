@@ -4,19 +4,17 @@
     <p class="text">Welocome to Card Randomizer!</p>    
     
     <div class="container">
-        <div class="item">
+        <div class="card_home">
             <img class="img" src="{{ url_for('image.static', filename='character_cards/character_card_header.jpg') }}">
         </div>
-        <div class="item">
+        <div class="card_home">
             <img class="img" src="{{ url_for('image.static', filename='context_cards/context_card_header.jpg') }}">
         </div>
-        <div class="item">
+        <div class="card_home">
             <img class="img" src="{{ url_for('image.static', filename='parameter_cards/parameter_card_header.jpg') }}">
         </div>
-        <div class="item">
-            <img class="img" src="{{ url_for('image.static', filename='00_wow cards.jpg') }}">
+        <div class="card_home">
+            <img class="img" src="{{ url_for('image.static', filename='rammojammo_cards/rammojammo_card_header.jpg') }}">
         </div>
     </div>
-
-    <p class="text">choose your card type</p>   
 {% endblock %}
