@@ -1,1 +1,1 @@
-web: gunicorn card-randomizer:app --log-file - 
+web: gunicorn card_randomizer:app
