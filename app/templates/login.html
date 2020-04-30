@@ -1,0 +1,41 @@
+{% block content %}
+    <h1>Sign In</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
+
+<!-- 
+{% block body %}
+    {% if session['logged_in'] %}
+        <p>You're logged in already!</p>
+    {% else %}
+        <form action="/login" method="POST">
+            <blockquote>
+                <input type="password" name="password" placeholder="Password"><br />
+            </blockquote>
+        <input type="submit" value="Log in">
+        </form>
+    {% endif %}
+    Nov/07/2018<br />
+{% endblock %}
+-->
