@@ -18,11 +18,13 @@ import os
 import sys
 import datetime
 import glob
+import json
 
 app.register_blueprint(setBlueprint.js)
 app.register_blueprint(setBlueprint.css)
 app.register_blueprint(setBlueprint.image)
 
+# global
 cache_01 = []
 cache_02 = []
 cache_03 = []
@@ -31,7 +33,8 @@ counter_01 = str()
 counter_02 = str()
 counter_03 = str()
 counter_04 = str()
-
+with open('app/settings.json') as f:
+    app_settings = json.load(f)
 ################################################################################
 
 # home page
@@ -95,7 +98,7 @@ def login():
         return redirect(url_for('home')) 
     form = LoginForm()
     if form.validate_on_submit():
-        if form.password.data == 'testpass':
+        if form.password.data == app_settings['password']:
             res = make_response(redirect(url_for('home')))
             res.set_cookie(
                 'status',
@@ -113,45 +116,69 @@ def login():
 
 ##################################################################################
 
-# character_cards page
-@app.route('/cards01', methods=['GET', 'POST'])
-def cards01():
+### character_cards page
+@app.route('/cards01_home', methods=['GET', 'POST'])
+def cards01_home():
     #login restriction with cookie
     status = request.cookies.get('status')
     if status == 'logged_in':
-        return render_template('cards01.html', counter = counter_01)
+        return render_template('cards01_home.html')
     else:
         return redirect(url_for('login'))
 
-# context_cards page
-@app.route('/cards02', methods=['GET', 'POST'])
-def cards02():
+@app.route('/cards01_deal', methods=['GET', 'POST'])
+def cards01_deal():
+    randomize_number_character_cards()
+    return render_template('cards01_deal.html', counter = counter_01, card = str(cache_01[-1]))
+
+
+### context_cards page
+@app.route('/cards02_home', methods=['GET', 'POST'])
+def cards02_home():
     #login restriction with cookie
     status = request.cookies.get('status')
     if status == 'logged_in':
-        return render_template('cards02.html')
+        return render_template('cards02_home.html')
     else:
         return redirect(url_for('login'))
 
-# parameter_cards page
-@app.route('/cards03', methods=['GET', 'POST'])
-def cards03():
+@app.route('/cards02_deal', methods=['GET', 'POST'])
+def cards02_deal():
+    randomize_number_context_cards()
+    return render_template('cards02_deal.html', counter = counter_02, card = str(cache_02[-1]))
+
+
+### parameter_cards page
+@app.route('/cards03_home', methods=['GET', 'POST'])
+def cards03_home():
     #login restriction with cookie
     status = request.cookies.get('status')
     if status == 'logged_in':
-        return render_template('cards03.html')
+        return render_template('cards03_home.html')
     else:
         return redirect(url_for('login'))
 
-# rammojammo_cards page
-@app.route('/cards04', methods=['GET', 'POST'])
-def cards04():
+@app.route('/cards03_deal', methods=['GET', 'POST'])
+def cards03_deal():
+    randomize_number_parameter_cards()
+    return render_template('cards03_deal.html', counter = counter_03, card = str(cache_03[-1]))
+
+
+### rammojammo_cards page
+@app.route('/cards04_home', methods=['GET', 'POST'])
+def cards04_home():
     #login restriction with cookie
     status = request.cookies.get('status')
     if status == 'logged_in':
-        return render_template('cards04.html')
+        return render_template('cards04_home.html')
     else:
         return redirect(url_for('login'))
+
+@app.route('/cards04_deal', methods=['GET', 'POST'])
+def cards04_deal():
+    randomize_number_rammojammo_cards()
+    return render_template('cards04_deal.html', counter = counter_04, card = str(cache_04[-1]))
+
 
 #################################################################################
 
@@ -161,19 +188,19 @@ def randomize_number_character_cards():
     global cache_01
     global counter_01
     files = os.listdir('app/static/image/character_cards')
-    n = len(files) - 1
-    l = len(cache_01)
+    n = len(files) - 1 #number of jpg files
+    l = len(cache_01) #number of random numbers in cache_01
     counter_01 = str(l) + '/' + str(n)
     while l < n:
         r = random.randint(1,n)
         if r not in cache_01:
             cache_01.append(r)
-            return str(r)
+            return f"{r} {counter_01}" #return 2 strings
     else:
         cache_01.clear()
         r = random.randint(1,n)
         cache_01.append(r)
-        return str(r)
+        return f"{r} {counter_01}" #return 2 strings
 
 # random number for context cards
 @app.route('/randomNum_context_cards', methods=['GET'])
@@ -188,12 +215,12 @@ def randomize_number_context_cards():
         r = random.randint(1,n)
         if r not in cache_02:
             cache_02.append(r)
-            return str(r)
+            return f"{r} {counter_02}" #return 2 strings
     else:
         cache_02.clear()
         r = random.randint(1,n)
         cache_02.append(r)
-        return str(r)
+        return f"{r} {counter_02}" #return 2 strings
 
 # random number for parameter cards
 @app.route('/randomNum_parameter_cards', methods=['GET'])
@@ -208,12 +235,12 @@ def randomize_number_parameter_cards():
         r = random.randint(1,n)
         if r not in cache_03:
             cache_03.append(r)
-            return str(r)
+            return f"{r} {counter_03}" #return 2 strings
     else:
         cache_03.clear()
         r = random.randint(1,n)
         cache_03.append(r)
-        return str(r)
+        return f"{r} {counter_03}" #return 2 strings
 
 # random number for rammojammo cards
 @app.route('/randomNum_rammojammo_cards', methods=['GET'])
@@ -228,9 +255,9 @@ def randomize_number_rammojammo_cards():
         r = random.randint(1,n)
         if r not in cache_04:
             cache_04.append(r)
-            return str(r)
+            return f"{r} {counter_04}" #return 2 strings
     else:
         cache_04.clear()
         r = random.randint(1,n)
         cache_04.append(r)
-        return str(r)
+        return f"{r} {counter_04}" #return 2 strings

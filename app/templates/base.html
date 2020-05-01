@@ -13,11 +13,13 @@
             </h1>
             <nav>
                 <ul>
-                    <a href="{{ url_for('cards01') }}">character cards</a>
-                    <a href="{{ url_for('cards02') }}">context cards</a>
-                    <a href="{{ url_for('cards03') }}">parameter cards</a>
-                    <a href="{{ url_for('cards04') }}">rammojammo cards</a>
-                    <a href="{{ url_for('admin_login') }}">admin</a>
+                    <a href="{{ url_for('cards01_home') }}">character</a>
+                    <a href="{{ url_for('cards02_home') }}">context</a>
+                    <a href="{{ url_for('cards03_home') }}">parameter</a>
+                    <a href="{{ url_for('cards04_home') }}">rammojammo</a>
+                    <span class="admin">
+                    <a class="admin" href="{{ url_for('admin_login') }}">admin</a>
+                    </span>
                 </ul>
             </nav>
         </header>      
