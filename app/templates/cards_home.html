@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}    
+    <div class="body">
+        <div class="slidershow middle">
+            <div class="slides">
+                <input type="radio" name="r" id="r1" checked>
+                <input type="radio" name="r" id="r2">
+                <input type="radio" name="r" id="r3">
+                <input type="radio" name="r" id="r4">
+                <input type="radio" name="r" id="r5">
+                <div class="slide s1">
+                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}" alt="">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-2.jpg') }}" alt="">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-3.jpg') }}" alt="">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-4.jpg') }}" alt="">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-5.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <label for="r1" class="bar"></label>
+            <label for="r2" class="bar"></label>
+            <label for="r3" class="bar"></label>
+            <label for="r4" class="bar"></label>
+            <label for="r5" class="bar"></label>
+        </div>
+    </div>
+    
+    <div class="description">
+        <p class="title">{{ cards_folder }}</p>    
+        <p class="text">
+            Usually you are trying to think about ideas for people right?
+            So sometimes it is good to start with a person and think of an idea for them.<br>
+            <br>
+            Take a card, on each card there is an image of a person and a name that describes their character.
+            None of them are normal people but rather one of a range of unusual characters.<br>
+            <br>
+            Let your imagination go to work, how does the character on the card inspire you, what ideas can you think of?
+        </p>
+    </div>
+
+    <div class="button">
+        <a href="{{ url_for('cards_deal', cards_folder = cards_folder) }}">
+            <button class="deal" onclick="randomize_image()">START</button>
+            <!--
+            <input class="deal" type="button" value="START" onclick="randomize_image();"/>
+            -->
+        </a>
+    </div>
+    
+    
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card_deal">
+        <div class="card_deck" id="cards">
+            <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
+        </div>
+        <p class="counter">
+            <span id="count">1</span><span> / {{ cardsNum }}</span>
+        </p>
+        <div class="button">
+            <button class="deal" onclick="randomize_image({{ cardsNum }}, '{{ cards_folder }}')">DEAL</button>
+        </div>
+    </div>
+    
+    <script>
+        var cards_cache = [];
+        randomize_image({{ cardsNum }}, '{{ cards_folder }}')
+
+        /* NEW random generater : character_cards */
+        function randomize_image(numOfCards, cards_folder) {
+            //console.log(numOfCards)
+            //console.log(cards_folder)
+            if (cards_cache.length >= numOfCards) {
+                cards_cache = [];
+            } 
+            while (true) {
+                var r = Math.floor(Math.random() * numOfCards) + 1;
+                if (cards_cache.indexOf(r) === -1) {
+                    cards_cache.push(r);
+                    break;
+                }
+            }
+            var imgName = "card-" + r + ".jpg";
+            document.getElementById("imageid").src= "../../static/image/" + cards_folder + "/" + imgName; 
+            document.getElementById("count").innerHTML = cards_cache.length;
+        } 
+    </script>
+{% endblock %}
