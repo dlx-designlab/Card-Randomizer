@@ -36,7 +36,8 @@
     </div>
     
     <div class="description">
-        <p class="title">{{ cards_folder }}</p>    
+        <p class="title">{{ card_name }}</p>    
+        <!-- <div class="text" id="TextDisplayAreaID"></div> -->
         <p class="text">
             <embed src="{{ url_for('image.static', filename = cards_folder + '/description.txt') }}" type="">
         </p>
@@ -45,11 +46,26 @@
     <div class="button">
         <a href="{{ url_for('cards_deal', cards_folder = cards_folder) }}">
             <button class="deal" onclick="randomize_image()">START</button>
-            <!--
-            <input class="deal" type="button" value="START" onclick="randomize_image();"/>
-            -->
         </a>
     </div>
     
-    
+    <!-- <script>
+        window.onload = function() {
+            // The File to load
+            var file = "{{ url_for('image.static', filename = cards_folder + '/description.txt') }}"
+            console.log(file)
+            // The area in the HTML page to update
+            var textDisplayArea = document.getElementById('TextDisplayAreaID');
+            // Creaet a file reader
+            var reader = new FileReader();
+            // A function that runs when the file is loaded
+            reader.addEventListener("loadend", function() {
+                // update the "textDisplayArea" with the file content
+                textDisplayArea.innerText = reader.result;
+            })
+
+            // Load and read the file
+            reader.readAsText(file);	
+        };
+    </script> -->
 {% endblock %}

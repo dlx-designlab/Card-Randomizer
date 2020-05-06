@@ -351,10 +351,11 @@ input[name="r"] {
     margin-bottom: 30px;
 }
 
-.text {
+.text embed {
     width: 600px;
+    height: 160px;
     text-align: justify;
-    font-family: Poppins;
+    font-family: Poppins !important;
     font-size: 12px;
     font-weight: 200;
     letter-spacing: 1px;
@@ -504,7 +505,7 @@ footer {
         margin: auto;
     }
 
-    .text {
+    .text embed{
         width: 500px;
     }
 
@@ -571,7 +572,7 @@ footer {
         height: auto;
     }
 
-    .text {
+    .text embed{
         width: 100%;
         padding-left: 40px;
         padding-right: 40px;

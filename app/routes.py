@@ -92,7 +92,7 @@ def home():
 # #        pass.set_password(form.password.data)
 # #        db.session.commit()
 #         flash('the pass has been changed successfully!')
-#     return render_template('admin.html', title='Reset Pass', form=form)
+    # return render_template('admin.html', title='Reset Pass', form=form)
 
 # login page
 @app.route('/login', methods=['GET', 'POST'])
@@ -134,7 +134,12 @@ def cards_home(card_type):
             4:'rammojammo_cards',
         }
         cards_folder = switcher.get(int(card_type),"Invalid Card Type")
-        return render_template('cards_home.html', cards_folder = cards_folder)
+        
+        #creat title for each card's home page e.g. character card
+        rabel_list = cards_folder.split('_') 
+        card_name = rabel_list[0] + ' card'
+        
+        return render_template('cards_home.html', cards_folder = cards_folder, card_name = card_name)
     else:
         return redirect(url_for('login'))
 
