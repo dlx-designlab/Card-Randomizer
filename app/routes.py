@@ -1,17 +1,17 @@
 # this is card randomizer app
 # all rights reserved DLX Design Lab
 
-from flask import render_template, url_for, redirect #templates
-from flask import render_template, flash, redirect #login form
-from flask import request, make_response #cookies
+from flask import render_template, url_for, redirect ### for templates
+from flask import render_template, flash, redirect ### for login form
+from flask import request, make_response ### for cookies
 
-from app import app, db
-from app.forms import LoginForm, RegistrationForm, AdminLoginForm, ResetPassForm
+from app import app #db
+from app.forms import LoginForm  # RegistrationForm, AdminLoginForm, ResetPassForm
 from app import setBlueprint
 
-from flask_login import current_user, login_user, login_required #login_admin
-from app.models import Pass, User 
-from werkzeug.urls import url_parse
+# from flask_login import current_user, login_user, login_required #login_admin
+# from app.models import Pass, User 
+# from werkzeug.urls import url_parse
 
 import random
 import os
@@ -67,32 +67,32 @@ def home():
 #     return render_template('admin_register.html', title='Admin Register', form=form)
 
 # Admin_login page
-@app.route('/admin_login', methods=['GET', 'POST'])
-def admin_login():
-    if current_user.is_authenticated:
-        return redirect(url_for('admin'))
-    form = AdminLoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('admin_login'))
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('admin')
-        return redirect(next_page)
-    return render_template('admin_login.html', title='Admin Sign In', form=form)
+# @app.route('/admin_login', methods=['GET', 'POST'])
+# def admin_login():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('admin'))
+#     form = AdminLoginForm()
+#     if form.validate_on_submit():
+#         user = User.query.filter_by(username=form.username.data).first()
+#         if user is None or not user.check_password(form.password.data):
+#             flash('Invalid username or password')
+#             return redirect(url_for('admin_login'))
+#         next_page = request.args.get('next')
+#         if not next_page or url_parse(next_page).netloc != '':
+#             next_page = url_for('admin')
+#         return redirect(next_page)
+#     return render_template('admin_login.html', title='Admin Sign In', form=form)
 
 # admin page
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
-    form = ResetPassForm()
-    if form.validate_on_submit():
-#        pass = Pass()
-#        pass.set_password(form.password.data)
-#        db.session.commit()
-        flash('the pass has been changed successfully!')
-    return render_template('admin.html', title='Reset Pass', form=form)
+# @app.route('/admin', methods=['GET', 'POST'])
+# def admin():
+#     form = ResetPassForm()
+#     if form.validate_on_submit():
+# #        pass = Pass()
+# #        pass.set_password(form.password.data)
+# #        db.session.commit()
+#         flash('the pass has been changed successfully!')
+#     return render_template('admin.html', title='Reset Pass', form=form)
 
 # login page
 @app.route('/login', methods=['GET', 'POST'])

@@ -1,7 +1,7 @@
 from datetime import datetime
-from app import db, login
+from app import login # db
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+# from flask_login import UserMixin
 
 # class for pass reset
 class Pass(UserMixin, db.Model):
