@@ -1,4 +1,4 @@
-/* random generater : character_cards */
+/* random generater : character_cards
 function randomize_image_character_cards() {
     $.ajax({
         type: 'GET',
@@ -15,6 +15,10 @@ function randomize_image_character_cards() {
         }
     });
 };
+*/
+
+
+
 
 /* random generater : context_cards */
 function randomize_image_context_cards() {
@@ -69,3 +73,34 @@ function randomize_image_rammojammo_cards() {
         }
     });
 };
+
+
+/* humberger menu */
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+
+    burger.addEventListener('click', () => {
+        //Toggle Nav
+        nav.classList.toggle('nav-active');
+
+        //Animate Links
+        navLinks.forEach((link, base_test) => {
+            if(link.style.animation) {
+                link.style.animation = ``
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${base_test / 5 + 0.3}s`;
+            }
+        });
+        //Burger Animation
+        burger.classList.toggle('toggle')
+
+
+    });
+    
+    
+}
+
+navSlide();
