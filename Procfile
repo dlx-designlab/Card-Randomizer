@@ -1,1 +1,1 @@
-web: gunicorn card_randomizer:app
+web: gunicorn --bind 0.0.0.0:$PORT card_randomizer:app
