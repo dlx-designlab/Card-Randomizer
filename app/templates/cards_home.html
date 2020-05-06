@@ -38,13 +38,7 @@
     <div class="description">
         <p class="title">{{ cards_folder }}</p>    
         <p class="text">
-            Usually you are trying to think about ideas for people right?
-            So sometimes it is good to start with a person and think of an idea for them.<br>
-            <br>
-            Take a card, on each card there is an image of a person and a name that describes their character.
-            None of them are normal people but rather one of a range of unusual characters.<br>
-            <br>
-            Let your imagination go to work, how does the character on the card inspire you, what ideas can you think of?
+            <embed src="{{ url_for('image.static', filename = cards_folder + '/description.txt') }}" type="">
         </p>
     </div>
 

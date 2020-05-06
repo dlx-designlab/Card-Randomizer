@@ -140,6 +140,10 @@ def cards_home(card_type):
 
 @app.route('/cards_deal/<cards_folder>', methods=['GET', 'POST'])
 def cards_deal(cards_folder):
-    list = os.listdir('app/static/image/' + cards_folder)
-    cardsNum = len(list) - 1 
+    files_list = []
+    for file in os.listdir('app/static/image/' + cards_folder):
+        if file.endswith(".jpg"):
+            files_list.append(file)
+    # list = os.listdir('app/static/image/' + cards_folder)
+    cardsNum = len(files_list) - 1 
     return render_template('cards_deal.html', cards_folder = cards_folder, cardsNum = cardsNum)
