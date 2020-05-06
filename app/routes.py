@@ -54,17 +54,17 @@ def home():
         return redirect(url_for('login'))
 
 # admin_register page
-@app.route('/admin_register', methods=['GET', 'POST'])
-def admin_register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('Congratulations, you are now a registered admin!')
-        return redirect(url_for('admin_login'))
-    return render_template('admin_register.html', title='Admin Register', form=form)
+# @app.route('/admin_register', methods=['GET', 'POST'])
+# def admin_register():
+#     form = RegistrationForm()
+#     if form.validate_on_submit():
+#         user = User(username=form.username.data, email=form.email.data)
+#         user.set_password(form.password.data)
+#         db.session.add(user)
+#         db.session.commit()
+#         flash('Congratulations, you are now a registered admin!')
+#         return redirect(url_for('admin_login'))
+#     return render_template('admin_register.html', title='Admin Register', form=form)
 
 # Admin_login page
 @app.route('/admin_login', methods=['GET', 'POST'])
