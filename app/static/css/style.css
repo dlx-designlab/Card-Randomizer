@@ -50,6 +50,21 @@ html, body {
 }
 
 /*---------------------------------------------------------------*/
+/* login */
+/*---------------------------------------------------------------*/
+/* .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p .rabel {
+    font-family: Poppins;
+    font-size: 12px;
+} */
+
+
+
+/*---------------------------------------------------------------*/
 /* header */
 /*---------------------------------------------------------------*/
 header {
@@ -80,12 +95,12 @@ nav h1 {
 }
 
 .image {
-    width: 100px;
-    transition: 0.3s ease;
+    width: 90px;
+    /* transition: 0.3s ease; */
 }
-.image:hover {
+/* .image:hover {
     filter: drop-shadow(3px 3px 3px #aaa);
-}
+} */
 
 .nav-links {
     display: flex;
@@ -351,9 +366,9 @@ input[name="r"] {
     margin-bottom: 30px;
 }
 
-.text embed {
+.text {
     width: 600px;
-    height: 160px;
+    height: auto;
     text-align: justify;
     font-family: Poppins !important;
     font-size: 12px;
@@ -396,6 +411,7 @@ button.deal:hover{
 /* footer */
 /*---------------------------------------------------------------*/
 footer {
+    position: relative;
     bottom: 0;
     width: 100%;
     height: auto;
@@ -501,11 +517,11 @@ footer {
     /* card_deal image scaler */
     .card_deck img {
         height: auto;
-        width: 80%;
+        width: 70%;
         margin: auto;
     }
 
-    .text embed{
+    .text {
         width: 500px;
     }
 
@@ -572,7 +588,11 @@ footer {
         height: auto;
     }
 
-    .text embed{
+    .counter {
+        margin-bottom: 20px;
+    }
+
+    .text {
         width: 100%;
         padding-left: 40px;
         padding-right: 40px;

@@ -37,10 +37,45 @@
     
     <div class="description">
         <p class="title">{{ card_name }}</p>    
+        
         <!-- <div class="text" id="TextDisplayAreaID"></div> -->
-        <p class="text">
+        <!-- <p class="text">
             <embed src="{{ url_for('image.static', filename = cards_folder + '/description.txt') }}" type="">
-        </p>
+        </p> -->
+
+        {% if cards_folder == "character_cards" %}
+            <p class="text">
+                Usually you are trying to think about ideas for people right? So sometimes it is good to start with a person and think of an idea for them.<br>
+                <br>
+                Take a card, on each card there is an image of a person and a name that describes their character. None of them are normal people but rather one of a range of unusual characters.<br>
+                <br>
+                Let your imagination go to work, how does the character on the card inspire you, what ideas can you think of?
+            </p>
+        {% elif cards_folder == "context_cards" %}
+            <p class="text">
+                Ideas are almost always located in a place, correct?<br>
+                <br>
+                In this set of cards there are a wide range of different places and spaces, take a card and think what kind of ideas are inspired from that place. Maybe you can think of ideas specifically for that place, or the place on the card catalyzes a new idea.<br>
+                <br>
+                There are 48 cards most are everyday spaces, but one set of 6 cards are of extreme environments.
+            </p>
+        {% elif cards_folder == "parameter_cards" %}
+            <p class="text">
+                These cards are useful when you know what it is you are thinking about (e.g. a new type of kettle, or a new type of banking service).<br>
+                <br>
+                Each of these cards has a different parameter on it, like price, weight, size, etc. Take a card and see if you can think of an idea that responds to that card.<br>
+                <br>
+                e.g. you pick a super low costs card and you are thinking of a new type of kettle - can you think of an idea for a $1 kettle?
+            </p>
+        {% elif cards_folder == "rammojammo_cards" %}
+            <p class="text">
+                Sometimes in an idea generation session you need to explore a super wide spectrum of ideas, these cards are great for that.<br>
+                <br>
+                These are a very diverse range of cards, each one has an image and a set of words on it - the words are connected to the image. Look at the image and / or look at the words and let your mind create ideas inspired by the cards.<br>
+                <br>
+                Rammo Jammo are great for creating ideas in the far corners of your creative space!
+            </p>
+        {% endif %}
     </div>
 
     <div class="button">
