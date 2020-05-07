@@ -370,7 +370,7 @@ input[name="r"] {
     width: 600px;
     height: auto;
     text-align: justify;
-    font-family: Poppins !important;
+    font-family: Poppins;
     font-size: 12px;
     font-weight: 200;
     letter-spacing: 1px;
