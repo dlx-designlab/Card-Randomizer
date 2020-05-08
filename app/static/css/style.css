@@ -39,11 +39,22 @@ body, html{margin:0; padding:0; border: 0; outline: 0; font-size: 100%; vertical
     box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
     height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    padding-bottom: 120px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -335,7 +346,7 @@ input[name="r"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 30px auto;
+    padding-top: 30px;
 }
 .card_deck {
     display: flex;
@@ -348,6 +359,29 @@ input[name="r"] {
     filter: drop-shadow(3px 3px 3px #aaa);
 }
 
+/* rammojammo card */
+.card_deck_rammojammo {
+    display: flex;
+    justify-content: center;
+}
+.card_deck_rammojammo img {
+    height: 400px;
+    width: 350px;
+    border-radius: 15px;
+    filter: drop-shadow(3px 3px 3px #aaa);
+}
+/* .front {
+    height: 400px;
+    width: 350px;
+    border-radius: 15px;
+    filter: drop-shadow(3px 3px 3px #aaa);
+}
+.back {
+    height: 400px;
+    width: auto;
+    border-radius: 15px;
+    filter: drop-shadow(3px 3px 3px #aaa);
+} */
 
 /* description */
 .description {
@@ -411,14 +445,15 @@ button.deal:hover{
 /* footer */
 /*---------------------------------------------------------------*/
 footer {
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: 0; /* fixed at the bottom */
     width: 100%;
-    height: auto;
+    background-color: rgba(245, 245, 245, 0.582);
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(245, 245, 245, 0.582);
+    
 }
 /* copyright */
 .copyright {
@@ -561,6 +596,11 @@ footer {
 /* smartphone */
 
 @media screen and (max-width:480px) {
+    /* body */
+    .wrapper {
+        padding-bottom: 200px;
+    }
+
     /* header */
     nav {
         width: 100%;
@@ -603,9 +643,8 @@ footer {
     }
 
     /* footer */
-    .copyright {
-        margin-top: 150px;
-        margin-bottom: 150px;
+    footer {
+        height: 200px;
     }
 
 }

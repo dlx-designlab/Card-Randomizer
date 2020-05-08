@@ -2,9 +2,17 @@
 
 {% block content %}
     <div class="card_deal">
-        <div class="card_deck" id="cards">
-            <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
-        </div>
+        {% if cards_folder == "rammojammo_cards" %}    
+            <div class="card_deck_rammojammo">
+                <img id="jammo_imageid_front" style="background: url({{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}) 0 0 / auto 400px" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
+                <img id="jammo_imageid_back" style="background: url({{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}) -350px 0 / auto 400px" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
+            </div>
+        {% else %}
+            <div class="card_deck">
+                <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
+            </div>
+        {% endif %}
+
         <p class="counter">
             <span id="count">1</span><span> / {{ cardsNum }}</span>
         </p>
@@ -22,6 +30,7 @@
             //console.log(numOfCards)
             //console.log(cards_folder)
             if (cards_cache.length >= numOfCards) {
+                alert("You have reached the end of the deck...!\nPress OK to shuffle the deck")
                 cards_cache = [];
             } 
             while (true) {
@@ -32,7 +41,13 @@
                 }
             }
             var imgName = "card-" + r + ".jpg";
-            document.getElementById("imageid").src= "../../static/image/" + cards_folder + "/" + imgName; 
+            var imgPath = "../../static/image/" + cards_folder + "/" + imgName
+            if (cards_folder === "rammojammo_cards") {
+                document.getElementById('jammo_imageid_front').style.background = "url("+ imgPath +") 0 0 / auto 400px"
+                document.getElementById('jammo_imageid_back').style.background = "url("+ imgPath +") -350px 0 / auto 400px"
+            } else {
+                document.getElementById("imageid").src = imgPath; 
+            }
             document.getElementById("count").innerHTML = cards_cache.length;
         } 
     </script>
