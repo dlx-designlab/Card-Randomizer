@@ -428,6 +428,10 @@ footer {
     margin: 50px;
     color: rgb(100, 100, 100);
     letter-spacing: 0.5px;
+    text-decoration: none;
+}
+.copyright:hover {
+    color: #000000;
 }
 
 
