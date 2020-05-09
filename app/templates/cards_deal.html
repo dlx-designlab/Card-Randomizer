@@ -3,10 +3,16 @@
 {% block content %}
     <div class="card_deal">
         {% if cards_folder == "rammojammo_cards" %}    
-            <div class="card_deck_rammojammo">
-                <img id="jammo_imageid_front" style="background: url({{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}) 0 0 / auto 400px" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
-                <img id="jammo_imageid_back" style="background: url({{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}) -350px 0 / auto 400px" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
-            </div>
+            <div class="flip_card">
+                <div class="flip_card_inner">
+                    <div class="flip_card_front">
+                        <img id="jammo_imageid_front" class="img_front" style="" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
+                    </div>
+                    <div class="flip_card_back">  
+                        <img id="jammo_imageid_back" class="img_back" style="" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
+                    </div>
+                </div>
+            </div>     
         {% else %}
             <div class="card_deck">
                 <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
@@ -43,8 +49,8 @@
             var imgName = "card-" + r + ".jpg";
             var imgPath = "../../static/image/" + cards_folder + "/" + imgName
             if (cards_folder === "rammojammo_cards") {
-                document.getElementById('jammo_imageid_front').style.background = "url("+ imgPath +") 0 0 / auto 400px"
-                document.getElementById('jammo_imageid_back').style.background = "url("+ imgPath +") -350px 0 / auto 400px"
+                document.getElementById('jammo_imageid_front').style.background = "url("+ imgPath +") 0 0 / auto 320px"
+                document.getElementById('jammo_imageid_back').style.background = "url("+ imgPath +") -280px 0 / auto 320px"
             } else {
                 document.getElementById("imageid").src = imgPath; 
             }

@@ -9,21 +9,39 @@
                 <input type="radio" name="r" id="r3">
                 <input type="radio" name="r" id="r4">
                 <input type="radio" name="r" id="r5">
-                <div class="slide s1">
-                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-2.jpg') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-3.jpg') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-4.jpg') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ url_for('image.static', filename = cards_folder + '/card-5.jpg') }}" alt="">
-                </div>
+                {% if cards_folder == "rammojammo_cards" %}
+                    <div class="slide s1">
+                        <img class="rammojammo_slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="rammojammo_slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-2.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="rammojammo_slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-3.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="rammojammo_slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-4.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="rammojammo_slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-5.jpg') }}" alt="">
+                    </div>
+                {% else %}
+                    <div class="slide s1">
+                        <img class="slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-2.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-3.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-4.jpg') }}" alt="">
+                    </div>
+                    <div class="slide">
+                        <img class="slide_img" src="{{ url_for('image.static', filename = cards_folder + '/card-5.jpg') }}" alt="">
+                    </div>
+                {% endif %} 
             </div>
         </div>
         <div class="navigation">

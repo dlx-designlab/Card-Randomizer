@@ -314,9 +314,17 @@ input[name="r"] {
     transition: 0.6s;
 }
 
-.slide img {
+.slide_img {
     height: 400px;
     width: auto;
+    border-radius: 15px;
+    filter: drop-shadow(3px 3px 3px #aaa);
+    position: relative;
+    z-index: 0;
+}
+.rammojammo_slide_img {
+    height: auto;
+    width: 600px;
     border-radius: 15px;
     filter: drop-shadow(3px 3px 3px #aaa);
     position: relative;
@@ -360,28 +368,38 @@ input[name="r"] {
 }
 
 /* rammojammo card */
-.card_deck_rammojammo {
-    display: flex;
-    justify-content: center;
+.flip_card {
+    width: 280px;
+    height: 320px;
+    perspective: 1000px;
 }
-.card_deck_rammojammo img {
-    height: 400px;
-    width: 350px;
+.flip_card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flip_card:hover .flip_card_inner {
+    transform: rotateY(180deg);
+}
+.flip_card_front, .flip_card_back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.flip_card_back {
+    transform: rotateY(180deg);
+}
+.img_front, .img_back {
+    height: 320px;
+    width: 280px;
     border-radius: 15px;
     filter: drop-shadow(3px 3px 3px #aaa);
 }
-/* .front {
-    height: 400px;
-    width: 350px;
-    border-radius: 15px;
-    filter: drop-shadow(3px 3px 3px #aaa);
-}
-.back {
-    height: 400px;
-    width: auto;
-    border-radius: 15px;
-    filter: drop-shadow(3px 3px 3px #aaa);
-} */
 
 /* description */
 .description {
@@ -598,6 +616,7 @@ footer {
 @media screen and (max-width:480px) {
     /* body */
     .wrapper {
+        height: auto;
         padding-bottom: 200px;
     }
 
@@ -641,6 +660,28 @@ footer {
         padding-left: 40px;
         padding-right: 40px;
     }
+
+    /* card_home */
+    .slidershow {
+        height: auto;
+        padding-bottom: 10px;
+    }
+    .slide_img {
+        height: 300px;
+    }
+    .rammojammo_slide_img {
+        width: 80%;
+    }
+    
+    /* card_deal */
+    .card_deal {
+        height: auto;
+    }
+    .card_deck img {
+        height: 300px;
+        width: auto;
+    }
+
 
     /* footer */
     footer {
