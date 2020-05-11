@@ -371,18 +371,27 @@ input[name="r"] {
 .flip_card {
     width: 280px;
     height: 320px;
-    perspective: 1000px;
+    /* perspective: 1000px; */
 }
 .flip_card_inner {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+    /* transition: transform 0.6s; */
+    /* transform-style: preserve-3d; */
 }
-.flip_card:hover .flip_card_inner {
-    transform: rotateY(180deg);
+/* flipping cards */
+/* @media (hover: hover) and (pointer: fine) {
+    .flip_card:hover .flip_card_inner {
+        transform: rotateY(180deg);
+    }
 }
+@media (hover: none) and (any-hover: none) and (pointer: coarse) and (any-pointer: coarse) {
+    .flip_card:active .flip_card:active:focus .flip_card_inner {
+        transform: rotateY(180deg);
+    }
+} */
+
 .flip_card_front, .flip_card_back {
     position: absolute;
     top: 0;
@@ -498,10 +507,6 @@ footer {
 
 
 
-
-
-
-
 /* tablet */
 @media screen and (max-width:1024px) {
     body {
@@ -608,6 +613,8 @@ footer {
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px,-5px);
 }
+
+
 
 
 /*-----------------------------------------------------------------------*/

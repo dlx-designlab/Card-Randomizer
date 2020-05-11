@@ -4,7 +4,7 @@
     <div class="card_deal">
         {% if cards_folder == "rammojammo_cards" %}    
             <div class="flip_card">
-                <div class="flip_card_inner">
+                <div id="flipping_card" class="flip_card_inner">
                     <div class="flip_card_front">
                         <img id="jammo_imageid_front" class="img_front" style="" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
                     </div>
@@ -12,7 +12,7 @@
                         <img id="jammo_imageid_back" class="img_back" style="" src="{{ url_for('image.static', filename = 'img_trans.gif') }}" alt="">
                     </div>
                 </div>
-            </div>     
+            </div>   
         {% else %}
             <div class="card_deck">
                 <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
@@ -28,6 +28,22 @@
     </div>
     
     <script>
+        $("#flipping_card").flip({
+            axis: 'y',
+            trigger: 'click',
+            front: '.flip_card_front',
+            back: '.flip_card_back',
+            autoSize: true
+        });
+        
+        var flip_timer = setInterval(timerfunc, 10000);
+        function timerfunc() {
+            $("#flipping_card").flip('toggle');
+        };
+
+        // document.getElementById("flipping_card").addEventListener("click", clearInterval(flip_timer));
+
+
         var cards_cache = [];
         randomize_image({{ cardsNum }}, '{{ cards_folder }}')
 
