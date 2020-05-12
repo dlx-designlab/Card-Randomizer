@@ -28,6 +28,7 @@
     </div>
     
     <script>
+        /* flipping cards */
         $("#flipping_card").flip({
             axis: 'y',
             trigger: 'click',
@@ -36,7 +37,7 @@
             autoSize: true
         });
         
-        var flip_timer = setInterval(timerfunc, 10000);
+        var flip_timer = setInterval(timerfunc, 7500);
         function timerfunc() {
             $("#flipping_card").flip('toggle');
         };
@@ -44,14 +45,19 @@
         // document.getElementById("flipping_card").addEventListener("click", clearInterval(flip_timer));
 
 
+        /* randomize cards */
         var cards_cache = [];
         randomize_image({{ cardsNum }}, '{{ cards_folder }}')
 
-        /* NEW random generater : character_cards */
         function randomize_image(numOfCards, cards_folder) {
             //console.log(numOfCards)
             //console.log(cards_folder)
             if (cards_cache.length >= numOfCards) {
+                // $.alert({
+                //     title: 'Alert!',
+                //     content: 'Simple alert!',
+                //     useBootstrap: false
+                // });
                 alert("You have reached the end of the deck...!\nPress OK to shuffle the deck")
                 cards_cache = [];
             } 
