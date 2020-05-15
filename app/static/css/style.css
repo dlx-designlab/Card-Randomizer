@@ -98,7 +98,7 @@ button.enter {
     cursor: pointer;
 }
 .arrow {
-    font-size: 2em;
+    font-size: 2.2em;
     transition: all 0.2s ease;
 }
 .arrow:hover {
@@ -179,6 +179,7 @@ nav h1 {
 .hover_line {
     color: #000000;
     letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 15px;
     display: inline-block;
@@ -204,6 +205,9 @@ nav h1 {
 
 /* admin */
 .admin a {
+    position: relative;
+    top: 2px;
+    font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-weight: 600;
     padding-top: 1px;

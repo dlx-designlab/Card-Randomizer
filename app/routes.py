@@ -95,33 +95,33 @@ def home():
     # return render_template('admin.html', title='Reset Pass', form=form)
 
 # login page
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    #login with cookie
-    status = request.cookies.get('status')
-    if status == 'logged_in':
-        return redirect(url_for('home')) 
-    form = LoginForm()
-    if form.validate_on_submit():
-        if form.password.data == app_settings['password']:
-            res = make_response(redirect(url_for('home')))
-            res.set_cookie(
-                'status',
-                value = 'logged_in',
-                max_age = None,
-                expires = datetime.datetime.now() + datetime.timedelta(days=1),
-                path = '/',
-                domain = None,
-                secure = False,
-                )
-            return res
-        else:
-            flash('wrong password')
-    return render_template('login.html', title='Sign In', form=form)
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     #login with cookie
+#     status = request.cookies.get('status')
+#     if status == 'logged_in':
+#         return redirect(url_for('home')) 
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         if form.password.data == app_settings['password']:
+#             res = make_response(redirect(url_for('home')))
+#             res.set_cookie(
+#                 'status',
+#                 value = 'logged_in',
+#                 max_age = None,
+#                 expires = datetime.datetime.now() + datetime.timedelta(days=1),
+#                 path = '/',
+#                 domain = None,
+#                 secure = False,
+#                 )
+#             return res
+#         else:
+#             flash('wrong password')
+#     return render_template('login.html', title='Sign In', form=form)
 
 # login_test page
-@app.route('/test', methods=['GET', 'POST'])
-def test():
+@app.route('/login', methods=['GET', 'POST'])
+def login():
     #login with cookie
     status = request.cookies.get('status')
     if status == 'logged_in':
@@ -142,7 +142,7 @@ def test():
             return resp
         else:
             flash('Wrong Password')
-    return render_template('login_test.html')
+    return render_template('login.html')
 
 ##################################################################################
 
@@ -170,9 +170,14 @@ def cards_home(card_type):
 @app.route('/cards_deal/<cards_folder>', methods=['GET', 'POST'])
 def cards_deal(cards_folder):
     files_list = []
-    for file in os.listdir('app/static/image/' + cards_folder):
-        if file.endswith(".jpg"):
-            files_list.append(file)
-    # list = os.listdir('app/static/image/' + cards_folder)
-    cardsNum = len(files_list) - 1 
-    return render_template('cards_deal.html', cards_folder = cards_folder, cardsNum = cardsNum)
+    #login restriction with cookie
+    status = request.cookies.get('status')
+    if status == 'logged_in':
+        for file in os.listdir('app/static/image/' + cards_folder):
+            if file.endswith(".jpg"):
+                files_list.append(file)
+        # list = os.listdir('app/static/image/' + cards_folder)
+        cardsNum = len(files_list) - 1 
+        return render_template('cards_deal.html', cards_folder = cards_folder, cardsNum = cardsNum)
+    else:
+        return redirect(url_for('login'))
