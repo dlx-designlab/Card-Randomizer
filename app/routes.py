@@ -38,9 +38,9 @@ with open('app/settings.json') as f:
     
 ################################################################################
 
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    return render_template('base_test.html')
+# @app.route('/test', methods=['GET', 'POST'])
+# def test():
+#     return render_template('login_test.html')
 
 # home page
 @app.route('/')
@@ -119,9 +119,33 @@ def login():
             flash('wrong password')
     return render_template('login.html', title='Sign In', form=form)
 
+# login_test page
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    #login with cookie
+    status = request.cookies.get('status')
+    if status == 'logged_in':
+        return redirect(url_for('home')) 
+    psw = request.form.get('psw')
+    if request.method == 'POST':
+        if psw == app_settings['password']:
+            resp = make_response(redirect(url_for('home')))
+            resp.set_cookie(
+                'status',
+                value = 'logged_in',
+                max_age = None,
+                expires = datetime.datetime.now() + datetime.timedelta(days=1),
+                path = '/',
+                domain = None,
+                secure = False,
+                )
+            return resp
+        else:
+            flash('Wrong Password')
+    return render_template('login_test.html')
+
 ##################################################################################
 
-### character_cards page
 @app.route('/cards_home/<card_type>')
 def cards_home(card_type):
     #login restriction with cookie
