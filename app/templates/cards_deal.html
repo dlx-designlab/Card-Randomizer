@@ -36,7 +36,7 @@
             back: '.flip_card_back',
             autoSize: true
         });
-        
+
         /* flip timer */ 
         // var flip_timer = setInterval(timerfunc, 10000);
         // function timerfunc() {
@@ -53,13 +53,16 @@
         function randomize_image(numOfCards, cards_folder) {
             //console.log(numOfCards)
             //console.log(cards_folder)
+            $("#flipping_card").flip(false);
             if (cards_cache.length >= numOfCards) {
-                // $.alert({
-                //     title: 'Alert!',
-                //     content: 'Simple alert!',
-                //     useBootstrap: false
-                // });
-                alert("You have reached the end of the deck...!\nPress OK to shuffle the deck")
+                $.alert({
+                    icon: 'fas fa-exclamation-circle',
+                    title: 'Reached end of deck!',
+                    content: 'Press OK to shuffle the deck',
+                    useBootstrap: false,
+                    theme: 'modern'
+                });
+                // alert("You have reached the end of the deck...!\nPress OK to shuffle the deck")
                 cards_cache = [];
             } 
             while (true) {
