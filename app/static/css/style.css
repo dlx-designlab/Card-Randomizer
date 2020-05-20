@@ -469,8 +469,8 @@ input[name="r"] {
     height: 100%;
     background-color: rgba(0,0,0,.8);
     z-index: 1;
-    cursor: pointer; */
-}
+    cursor: pointer; 
+}*/
 /*------------------- flip -------------------*/
 .flip_card {
     display: flex;
