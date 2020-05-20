@@ -471,9 +471,11 @@ input[name="r"] {
     z-index: 1;
     cursor: pointer;
 }
-
 /*------------------- flip -------------------*/
 .flip_card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 280px;
     height: 320px;
     /* perspective: 1000px; */
@@ -501,6 +503,12 @@ input[name="r"] {
     width: 280px;
     border-radius: 15px;
     filter: drop-shadow(3px 3px 3px #aaa);
+}
+.alert_text {
+    font-size: 14px;
+    font-weight: 600;
+    color: red;
+    margin-top: 130px;
 }
 
 /* description */
@@ -828,7 +836,9 @@ footer {
         height: 300px;
         width: auto;
     }
-
+    .alert_text {
+        margin-top: 100px;
+    }
 
     /* footer */
     footer {
