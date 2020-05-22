@@ -564,9 +564,11 @@ button.deal {
     border-radius: 20px;
     transition: all 0.2s ease;
 }
-
 button.deal:hover{
     background-color: grey;
+}
+button.deal:focus{
+    outline: none;
 }
 
 /*---------------------------------------------------------------*/
