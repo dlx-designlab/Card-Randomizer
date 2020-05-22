@@ -507,8 +507,8 @@ input[name="r"] {
 .alert_text {
     font-size: 14px;
     font-weight: 600;
-    color: red;
-    margin-top: 130px;
+    color: grey;
+    margin-top: 40px;
 }
 
 /* description */
@@ -566,7 +566,7 @@ button.deal {
 }
 
 button.deal:hover{
-    background-color: rgb(212, 212, 97);
+    background-color: grey;
 }
 
 /*---------------------------------------------------------------*/
