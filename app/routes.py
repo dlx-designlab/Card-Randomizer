@@ -38,21 +38,6 @@ with open('app/settings.json') as f:
     
 ################################################################################
 
-# @app.route('/test', methods=['GET', 'POST'])
-# def test():
-#     return render_template('login_test.html')
-
-# home page
-@app.route('/')
-@app.route('/home', methods=['GET', 'POST'])
-def home():
-    #login restriction with cookie
-    status = request.cookies.get('status')
-    if status == 'logged_in':
-        return render_template('home.html')
-    else:
-        return redirect(url_for('login'))
-
 # admin_register page
 # @app.route('/admin_register', methods=['GET', 'POST'])
 # def admin_register():
@@ -83,43 +68,43 @@ def home():
 #         return redirect(next_page)
 #     return render_template('admin_login.html', title='Admin Sign In', form=form)
 
+
 # admin page
-# @app.route('/admin', methods=['GET', 'POST'])
-# def admin():
-#     form = ResetPassForm()
-#     if form.validate_on_submit():
-# #        pass = Pass()
-# #        pass.set_password(form.password.data)
-# #        db.session.commit()
-#         flash('the pass has been changed successfully!')
-    # return render_template('admin.html', title='Reset Pass', form=form)
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+    #login restriction with cookie
+    status = request.cookies.get('admin_status')
+    if status != 'admin_logged_in':
+        return redirect(url_for('home'))
+    psw_old = request.form.get('psw_old')
+    psw_new = request.form.get('psw_new')
+    if status == 'admin_logged_in':
+        if request.method == 'POST':
+        #     form = ResetPassForm()
+        #     if form.validate_on_submit():
+        #        pass = Pass()
+        #        pass.set_password(form.password.data)
+        #        db.session.commit()
+        #         flash('the pass has been changed successfully!')
+            if psw_old == app_settings['password']:
+                app_settings['passoword'] = psw_new
+                flash('Passcode Changed')
+            else:
+                flash('Wrong Password')
+    return render_template('admin.html')
+
+# home page
+@app.route('/')
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    #login restriction with cookie
+    status = request.cookies.get('status')
+    if status == 'logged_in':
+        return render_template('home.html')
+    else:
+        return redirect(url_for('login'))
 
 # login page
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     #login with cookie
-#     status = request.cookies.get('status')
-#     if status == 'logged_in':
-#         return redirect(url_for('home')) 
-#     form = LoginForm()
-#     if form.validate_on_submit():
-#         if form.password.data == app_settings['password']:
-#             res = make_response(redirect(url_for('home')))
-#             res.set_cookie(
-#                 'status',
-#                 value = 'logged_in',
-#                 max_age = None,
-#                 expires = datetime.datetime.now() + datetime.timedelta(days=1),
-#                 path = '/',
-#                 domain = None,
-#                 secure = False,
-#                 )
-#             return res
-#         else:
-#             flash('wrong password')
-#     return render_template('login.html', title='Sign In', form=form)
-
-# login_test page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     #login with cookie
@@ -128,9 +113,42 @@ def login():
         return redirect(url_for('home')) 
     psw = request.form.get('psw')
     if request.method == 'POST':
-        if psw == app_settings['password']:
+        if psw == app_settings['password_admin']:
             resp = make_response(redirect(url_for('home')))
             resp.set_cookie(
+                'status',
+                value = 'logged_in',
+                max_age = None,
+                expires = None,
+                path = '/',
+                domain = None,
+                secure = False,
+                )
+            resp.set_cookie(
+                'admin_status',
+                value = 'admin_logged_in',
+                max_age = None,
+                expires = None,
+                path = '/',
+                domain = None,
+                secure = False,
+                )
+            return resp
+        elif psw == app_settings['password_dlx']:
+            resp2 = make_response(redirect(url_for('home')))
+            resp2.set_cookie(
+                'status',
+                value = 'logged_in',
+                max_age = None,
+                expires = None,
+                path = '/',
+                domain = None,
+                secure = False,
+                )
+            return resp2
+        if psw == app_settings['password']:
+            resp3 = make_response(redirect(url_for('home')))
+            resp3.set_cookie(
                 'status',
                 value = 'logged_in',
                 max_age = None,
@@ -139,7 +157,7 @@ def login():
                 domain = None,
                 secure = False,
                 )
-            return resp
+            return resp3
         else:
             flash('Wrong Password')
     return render_template('login.html')
