@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script> <!-- alart jquery -->
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script> <!-- flip image jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <title>Card Randomizer</title>
 </head>
 
@@ -25,7 +26,7 @@
                 <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 2) }}">context</a></li>
                 <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 3) }}">parameter</a></li>
                 <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 4) }}">rammo jammo</a></li>
-                <span class="admin">
+                <span class="admin" id="admin">
                     <li><a href="{{ url_for('admin') }}">admin</a></li>
                 </span>
             </ul>
@@ -35,6 +36,18 @@
                 <div class="line3"></div>
             </div>
         </nav>
+    
+        <script>
+            $(function() {
+                var cookiename = $.cookie('admin_status');
+                if (cookiename === "admin_logged_in") {
+                    $('#admin').css({display:'block'});
+                } else {
+                    $('#admin').css({display:'none'});
+                };
+            });
+        </script>
+    
     </header>
     
     <main>
