@@ -238,6 +238,23 @@ nav h1 {
     width: 100%;
 }
 
+/* language picker */
+.lang a {
+    color: #000000;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    padding-top: 4px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+.lang a:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
 /* admin */
 .admin a {
     position: relative;
@@ -730,6 +747,10 @@ footer {
         font-size: 24px;
     }
 
+    .lang a {
+        font-size: 16px;
+    }
+    
     .admin a {
         font-size: 12px;
     }

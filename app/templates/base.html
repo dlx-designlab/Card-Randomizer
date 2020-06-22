@@ -19,16 +19,23 @@
     <header>
         <nav>
             <h1>
-                <a href="{{ url_for('home') }}"><img class="image" src="{{ url_for('image.static', filename='DLX Design Lab Logo.png') }}"></a>
+                <a href="{{ url_for('multilingual.home') }}"><img class="image" src="{{ url_for('image.static', filename='DLX Design Lab Logo.png') }}"></a>
             </h1>
             <ul class="nav-links">
-                <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 1) }}">character</a></li>
-                <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 2) }}">context</a></li>
-                <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 3) }}">parameter</a></li>
-                <li><a class="hover_line" href="{{ url_for('cards_home', card_type = 4) }}">rammo jammo</a></li>
-                <span class="admin" id="admin">
-                    <li><a href="{{ url_for('admin') }}">admin</a></li>
+                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 1) }}">character</a></li>
+                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 2) }}">context</a></li>
+                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 3) }}">parameter</a></li>
+                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 4) }}">rammo jammo</a></li>
+                <span class="lang">
+                    <li>
+                        <a href="{{ url_for(request.endpoint, lang_code='en', **request.view_args) }}">EN</a>
+                        &nbsp;❘&nbsp;
+                        <a href="{{ url_for(request.endpoint, lang_code='ja', **request.view_args) }}">JP</a>
+                    </li>
                 </span>
+                <span class="admin" id="admin">
+                    <li><a href="{{ url_for('multilingual.admin') }}">admin</a></li>
+                </span>    
             </ul>
             <div class="burger">
                 <div class="line1"></div>

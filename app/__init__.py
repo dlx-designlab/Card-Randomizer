@@ -1,14 +1,26 @@
-from flask import Flask
+from flask import Flask, request, g, redirect, url_for
+from flask_babel import Babel
 from config import Config
-# from flask_sqlalchemy import SQLAlchemy
-# from flask_migrate import Migrate
-# from flask_login import LoginManager
 
+
+# set up application
 app = Flask(__name__)
 app.config.from_object(Config)
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
-# login = LoginManager(app)
-# login.login_view = 'login'
 
-from app import routes # models
+# import an register blueprints
+from app.blueprints.multilingual import multilingual
+app.register_blueprint(multilingual)
+
+# set up babel
+babel = Babel(app)
+@babel.localeselector
+def get_locale():
+    if not g.get('lang_code', None):
+        g.lang_code = request.accept_languages.best_match(app.config['LANGUAGES'])
+    return g.lang_code
+
+# redirect to http://localhost:5000/en/home
+@app.route('/')
+def home():
+    g.lang_code = request.accept_languages.best_match(app.config['LANGUAGES'])
+    return redirect(url_for('multilingual.home'))
