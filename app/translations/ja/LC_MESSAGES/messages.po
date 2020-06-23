@@ -21,7 +21,7 @@ msgstr ""
 
 
 #: app/blueprints/multilingual/templates/multilingual/cards_home.html:69
-msgid "NOOOOO Usually you are trying to think about ideas for people right? So sometimes it is good to start with a person and think of an idea for them."
+msgid "Usually you are trying to think about ideas for people right? So sometimes it is good to start with a person and think of an idea for them."
 msgstr "アイデアを考える時、たいていの場合は誰かのために考えようとしますよね？なので、まず人に着目して、その人のためのアイデアを考えていきましょう。"
 
 #: app/blueprints/multilingual/templates/multilingual/cards_home.html:71
