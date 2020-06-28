@@ -65,6 +65,23 @@ def admin():
             flash('Wrong Password', 'error')
     return render_template('multilingual/admin.html')
 
+# admin_new page
+# @multilingual.route('/admin_new', methods=['GET', 'POST'])
+# def admin():
+#     psw_crt = request.form.get('psw_crt')
+#     psw_new = request.form.get('psw_new')
+#     if request.method == 'POST':
+#         if psw_crt == app_settings['password']:
+#             app_settings['password'] = psw_new
+#             with open('app/settings.json', 'w') as f:
+#                 json.dump(app_settings, f)
+#                 f.close()
+#             flash('Passcode Changed', 'success')
+#         else:
+#             flash('Wrong Password', 'error')
+#     return render_template('multilingual/admin.html')
+
+
 # home page
 @multilingual.route('/')
 @multilingual.route('/home', methods=['GET', 'POST'])
@@ -130,6 +147,18 @@ def login():
                 secure = False,
                 )
             return resp3
+        if psw == app_settings['password_test']:
+            resp4 = make_response(render_template('multilingual/home.html'))
+            resp4.set_cookie(
+                'status',
+                value = 'logged_in',
+                max_age = None,
+                expires = datetime.datetime.now() + datetime.timedelta(days=7),
+                path = '/',
+                domain = None,
+                secure = False,
+                )
+            return resp4
         else:
             flash('Wrong Password', 'error')
     return render_template('multilingual/login.html')
