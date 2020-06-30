@@ -105,27 +105,22 @@ def login():
         for passwd in app_settings.values():
             print(passwd)
             if psw == passwd['pass']:
+                if passwd['isAdmin']:
+                    cookie_value = "admin_logged_in"
+                    print("admin detected")
+                else:
+                    cookie_value = "logged_in"
+                    print("regular user")
                 resp = make_response(render_template('multilingual/home.html'))
                 resp.set_cookie(
                     'status',
-                    value = 'logged_in',
+                    value = cookie_value,
                     max_age = None,
                     expires = datetime.datetime.now() + datetime.timedelta(days=passwd['duration']),
                     path = '/',
                     domain = None,
                     secure = False,
                     )
-                if psw == 'dlxadmin':
-                    resp.set_cookie(
-                        'admin_status',
-                        value = 'admin_logged_in',
-                        max_age = None,
-                        expires = None,
-                        path = '/',
-                        domain = None,
-                        secure = False,
-                        )
-                    return resp
                 return resp
             
         # if psw == app_settings['password_admin']:
