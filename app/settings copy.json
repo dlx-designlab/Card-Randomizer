@@ -1,0 +1,18 @@
+{
+    "password_01": {
+        "label": "admin password",
+        "pass": "dlxadmin"
+    },
+    "password_02": {
+        "label": "internal password",
+        "pass": "dlx2020"
+    },
+    "password_03": {
+        "label": "Workshop_Project Geras",
+        "pass": "dlx0619"
+    },
+    "password_04": {
+        "label": "Workshop_Mobility", 
+        "password": "dlx0622"
+    } 
+}
