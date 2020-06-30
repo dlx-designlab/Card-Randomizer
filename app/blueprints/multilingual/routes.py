@@ -102,63 +102,89 @@ def login():
         return redirect(url_for('multilingual.home')) 
     psw = request.form.get('psw')
     if request.method == 'POST':
-        if psw == app_settings['password_admin']:
-            resp = make_response(render_template('multilingual/home.html'))
-            resp.set_cookie(
-                'status',
-                value = 'logged_in',
-                max_age = None,
-                expires = None,
-                path = '/',
-                domain = None,
-                secure = False,
-                )
-            resp.set_cookie(
-                'admin_status',
-                value = 'admin_logged_in',
-                max_age = None,
-                expires = None,
-                path = '/',
-                domain = None,
-                secure = False,
-                )
-            return resp
-        elif psw == app_settings['password_dlx']:
-            resp2 = make_response(render_template('multilingual/home.html'))
-            resp2.set_cookie(
-                'status',
-                value = 'logged_in',
-                max_age = None,
-                expires = None,
-                path = '/',
-                domain = None,
-                secure = False,
-                )
-            return resp2
-        if psw == app_settings['password']:
-            resp3 = make_response(render_template('multilingual/home.html'))
-            resp3.set_cookie(
-                'status',
-                value = 'logged_in',
-                max_age = None,
-                expires = datetime.datetime.now() + datetime.timedelta(days=1),
-                path = '/',
-                domain = None,
-                secure = False,
-                )
-            return resp3
-        if psw == app_settings['password_test']:
-            resp4 = make_response(render_template('multilingual/home.html'))
-            resp4.set_cookie(
-                'status',
-                value = 'logged_in',
-                max_age = None,
-                expires = datetime.datetime.now() + datetime.timedelta(days=7),
-                path = '/',
-                domain = None,
-                secure = False,
-                )
-            return resp4
+        for passwd in app_settings.values():
+            print(passwd)
+            if psw == passwd['pass']:
+                resp = make_response(render_template('multilingual/home.html'))
+                resp.set_cookie(
+                    'status',
+                    value = 'logged_in',
+                    max_age = None,
+                    expires = datetime.datetime.now() + datetime.timedelta(days=passwd['duration']),
+                    path = '/',
+                    domain = None,
+                    secure = False,
+                    )
+                if psw == 'dlxadmin':
+                    resp.set_cookie(
+                        'admin_status',
+                        value = 'admin_logged_in',
+                        max_age = None,
+                        expires = None,
+                        path = '/',
+                        domain = None,
+                        secure = False,
+                        )
+                    return resp
+                return resp
+            
+        # if psw == app_settings['password_admin']:
+        #     resp = make_response(render_template('multilingual/home.html'))
+        #     resp.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = None,
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     resp.set_cookie(
+        #         'admin_status',
+        #         value = 'admin_logged_in',
+        #         max_age = None,
+        #         expires = None,
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp
+        # elif psw == app_settings['password_dlx']:
+        #     resp2 = make_response(render_template('multilingual/home.html'))
+        #     resp2.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = None,
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp2
+        # if psw == app_settings['password']:
+        #     resp3 = make_response(render_template('multilingual/home.html'))
+        #     resp3.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = datetime.datetime.now() + datetime.timedelta(days=1),
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp3
+        # if psw == app_settings['password_test']:
+        #     resp4 = make_response(render_template('multilingual/home.html'))
+        #     resp4.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = datetime.datetime.now() + datetime.timedelta(days=7),
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp4
         else:
             flash('Wrong Password', 'error')
     return render_template('multilingual/login.html')

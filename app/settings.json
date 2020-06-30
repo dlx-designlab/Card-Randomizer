@@ -1,1 +1,22 @@
-{"password_admin": "admin", "password_dlx": "dlxteam", "password": "dlx2020", "password_test":"ngoe827"}
+{
+    "password_01": {
+        "label": "admin password",
+        "pass": "dlxadmin",
+        "duration": 365
+    },
+    "password_02": {
+        "label": "internal password",
+        "pass": "dlxteam",
+        "duration": 365
+    },
+    "password_03": {
+        "label": "Workshop_Project Geras",
+        "pass": "dlx0619",
+        "duration": 1
+    },
+    "password_04": {
+        "label": "Workshop_Mobility", 
+        "pass": "dlx0622",
+        "durarion": 1
+    } 
+}
