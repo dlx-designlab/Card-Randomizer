@@ -46,8 +46,7 @@ counter_03 = str()
 counter_04 = str()
 with open('app/settings.json') as f:
     app_settings = json.load(f)
-with open('app/pass.json') as f:
-    pass_list = json.load(f)
+    
 ################################################################################
 
 # admin page
@@ -67,47 +66,20 @@ def admin():
     return render_template('multilingual/admin.html')
 
 # admin_new page
-@multilingual.route('/admin05', methods=['GET', 'POST'])
-def admin05():
-    label = request.form.get('label')
-    psw = request.form.get('pass')
-    duration = request.form.get('duration', type=int)
-    isAdmin = True if request.values.get('isAdmin') == "true" else False
-    new_pass = {
-        "label": label,
-        "pass": psw,
-        "duration": duration,
-        "isAdmin": isAdmin
-    }
-    if request.method == 'POST':
-        # for pass_dict in pass_list:
-        #     if psw != pass_dict['pass']:
-                with open('app/pass.json', 'ab+') as f:
-                    f.seek(0,2)
-                    if f.tell() == 0:
-                        f.write(json.dumps([new_pass]).encode())
-                        f.close()
-                    else:
-                        f.seek(-1,2)
-                        f.truncate()
-                        f.write(','.encode())
-                        f.write(json.dumps(new_pass, indent=4).encode())
-                        f.write(']'.encode())
-                        f.close()
-            # else:
-            #     flash('This password in already in use', 'error')
-    return render_template('multilingual/admin05.html')
-
-def admin05_2():
-    deleteLABEL = request.form.get('drop_down')
-    if request.method == 'POST':
-        for i in pass_list:
-            if deleteLABEL == passlist[i]['label']:
-                pass_list.pop(i)
-                pass_list.close()
-    return render_template('multilingual/admin05.html')
-
-
+# @multilingual.route('/admin_new', methods=['GET', 'POST'])
+# def admin():
+#     psw_crt = request.form.get('psw_crt')
+#     psw_new = request.form.get('psw_new')
+#     if request.method == 'POST':
+#         if psw_crt == app_settings['password']:
+#             app_settings['password'] = psw_new
+#             with open('app/settings.json', 'w') as f:
+#                 json.dump(app_settings, f)
+#                 f.close()
+#             flash('Passcode Changed', 'success')
+#         else:
+#             flash('Wrong Password', 'error')
+#     return render_template('multilingual/admin.html')
 
 
 # home page
@@ -116,7 +88,7 @@ def admin05_2():
 def home():
     #login restriction with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in':
         return render_template('multilingual/home.html')
     else:
         return redirect(url_for('multilingual.login'))
@@ -126,16 +98,19 @@ def home():
 def login():
     #login with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in':
         return redirect(url_for('multilingual.home')) 
     psw = request.form.get('psw')
     if request.method == 'POST':
         for passwd in app_settings.values():
+            print(passwd)
             if psw == passwd['pass']:
                 if passwd['isAdmin']:
                     cookie_value = "admin_logged_in"
+                    print("admin detected")
                 else:
                     cookie_value = "logged_in"
+                    print("regular user")
                 resp = make_response(render_template('multilingual/home.html'))
                 resp.set_cookie(
                     'status',
@@ -147,6 +122,64 @@ def login():
                     secure = False,
                     )
                 return resp
+            
+        # if psw == app_settings['password_admin']:
+        #     resp = make_response(render_template('multilingual/home.html'))
+        #     resp.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = None,
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     resp.set_cookie(
+        #         'admin_status',
+        #         value = 'admin_logged_in',
+        #         max_age = None,
+        #         expires = None,
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp
+        # elif psw == app_settings['password_dlx']:
+        #     resp2 = make_response(render_template('multilingual/home.html'))
+        #     resp2.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = None,
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp2
+        # if psw == app_settings['password']:
+        #     resp3 = make_response(render_template('multilingual/home.html'))
+        #     resp3.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = datetime.datetime.now() + datetime.timedelta(days=1),
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp3
+        # if psw == app_settings['password_test']:
+        #     resp4 = make_response(render_template('multilingual/home.html'))
+        #     resp4.set_cookie(
+        #         'status',
+        #         value = 'logged_in',
+        #         max_age = None,
+        #         expires = datetime.datetime.now() + datetime.timedelta(days=7),
+        #         path = '/',
+        #         domain = None,
+        #         secure = False,
+        #         )
+        #     return resp4
         else:
             flash('Wrong Password', 'error')
     return render_template('multilingual/login.html')
@@ -157,7 +190,7 @@ def login():
 def cards_home(card_type):
     #login restriction with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in':
         switcher={
             1:'character_cards',
             2:'context_cards',
@@ -179,7 +212,7 @@ def cards_deal(cards_folder):
     files_list = []
     #login restriction with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in':
         for file in os.listdir('app/static/image/' + cards_folder):
             if file.endswith(".jpg"):
                 files_list.append(file)
