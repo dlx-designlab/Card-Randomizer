@@ -20,7 +20,13 @@
     "password_04": {
         "label": "Workshop_Mobility", 
         "pass": "dlx0622",
-        "durarion": 1,
+        "duration": 1,
+        "isAdmin": false
+    },
+    "password_05": {
+        "label": "Workshop_Project Scott", 
+        "pass": "dlx0703",
+        "duration": 1,
         "isAdmin": false
     } 
 }
