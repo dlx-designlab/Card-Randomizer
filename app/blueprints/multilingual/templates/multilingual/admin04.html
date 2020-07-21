@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form id="form">
+        <label>label:</label><input type="text" name="label" required><br>
+        <label>pass:</label><input type="text" name="pass" required><br>
+        <label>duration:</label><input type="number" name="duration" required><br>
+        <label>isAdmin:<input type="radio" name="isAdmin">true</label>
+        <label><input type="radio" name="isAdmin">false</label>
+        <input type="reset" value="reset">  
+        <button type="submit" name="button">add</button>
+    </form>
+    
+    <div id="passwd" class="container">
+        <!-- <table>
+            <tr>
+                <th>lable</th>
+                <th>pass</th>
+                <th>duration</th>
+                <th>isAdmin</th>
+            </tr>
+        </table>
+        <table border=1>
+            <tr>
+                <td v-for="password in passwords">{{ password.label }}</td>
+            </tr>
+            <tr>
+                <td v-for="password in passwords">{{ password.pass }}</td>
+            </tr>
+            <tr>
+                <td v-for="password in passwords">{{ password.duration }}</td>
+            </tr>
+            <tr>
+                <td v-for="password in passwords">{{ password.isAdmin }}</td>
+            </tr>
+        </table> -->
+        <div class="title">
+            <h5>label</h5>
+            <h5>pass</h5>
+            <h5>duration</h5>
+            <h5>isAdmin</h5>
+        </div>
+        <div class="pass">
+            <h6 v-for="password in passwords">{{ password.label }}</h6>
+            <h6 v-for="password in passwords">{{ password.pass }}</h6>
+            <h6 v-for="password in passwords">{{ password.duration }}</h6>
+            <h6 v-for="password in passwords">{{ password.isAdmin }}</h6>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#passwd',
+            data: {
+                passwords: {}
+            },
+            mounted: function () {
+                var self = this;
+                $.getJSON('/app/pass_list.json', function (json) {
+                    self.passwords = json.data;
+                });
+            }
+        })
+    </script>
+
+{% endblock %}

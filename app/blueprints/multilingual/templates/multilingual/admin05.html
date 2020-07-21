@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <!-- password table -->
+    <div>
+        <h1>LOGIN-PASS LIST</h1>
+        <br>
+        <table id="pass_table">
+            <tr>
+                <th>LABEL</th>
+                <th>PASS</th>
+                <th>DURATION</th>
+                <th>ADMIN</th>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    
+    <!-- ADD/DELETE button -->
+    <button type="button" id="formButton">ADD</button>
+    <button type="button" id="deleteButton">DELETE</button>
+    
+    <br>
+    
+    <!-- add menu -->
+    <form id="form" action="/en/admin05" method="post">
+        <div>
+            <label>LABEL:</label><input type="text" name="label" required><br>
+            <label>PASS:</label><input type="text" name="pass" required><br>
+            <label>DURATION:</label><input type="number" name="duration" min="1" max="365" required><br>
+            <label>ADMIN:<input type="radio" name="isAdmin" value="true">true</label>
+            <label><input type="radio" name="isAdmin" value="false" checked>false</label>
+        </div>
+        <button type="submit" name="button">add</button>
+    </form>
+
+    <!-- delete menu -->
+    <form id="list" action="/en/admin05" method="POST">
+        <div>
+            <select name="drop_down" id="deletePASS">
+                <option value="None" selected="selected">SELECT LABEL</option>
+            </select>
+        </div>
+        <button type="submit" name="button">delete</button>
+    </form>
+</div>
+
+
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
+<script>
+    // password table
+    $(document).ready(function () {
+        $.getJSON('/app/pass.json', function (data) {
+            var pass_data = '';
+            $.each(data, function (key, value) {
+                pass_data += '<tr>';
+                pass_data += '<td>' + value.label + '</td>';
+                pass_data += '<td>' + value.pass + '</td>';
+                pass_data += '<td>' + value.duration + '</td>';
+                pass_data += '<td>' + value.isAdmin + '</td>';
+                pass_data += '</tr>';
+            });
+            $('#pass_table').append(pass_data);
+        });
+    });
+
+    // add menu toggle
+    $(document).ready(function () {
+        $("#formButton").click(function () {
+            $("#form").toggle();
+        });
+    });
+
+    // delete menu toggle
+    $(document).ready(function () {
+        $("#deleteButton").click(function () {
+            $("#list").toggle();
+        });
+    });
+
+    // delete menu dropdown option
+    $(document).ready(function () {
+        $.getJSON("/app/pass.json", function (data) {
+            $.each(data, function (key, value) {
+                $("#deletePASS").append('<option>' + value.label + '</option>');
+            });
+        });
+    });
+
+</script>
+
+{% endblock %}
