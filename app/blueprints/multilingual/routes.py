@@ -50,65 +50,49 @@ with open('app/pass.json') as f:
     pass_list = json.load(f)
 ################################################################################
 
+# admin_old page
+# @multilingual.route('/admin', methods=['GET', 'POST'])
+# def admin():
+#     psw_crt = request.form.get('psw_crt')
+#     psw_new = request.form.get('psw_new')
+#     if request.method == 'POST':
+#         if psw_crt == app_settings['password']:
+#             app_settings['password'] = psw_new
+#             with open('app/settings.json', 'w') as f:
+#                 json.dump(app_settings, f)
+#                 f.close()
+#             flash('Passcode Changed', 'success')
+#         else:
+#             flash('Wrong Password', 'error')
+#     return render_template('multilingual/admin.html')
+
 # admin page
 @multilingual.route('/admin', methods=['GET', 'POST'])
 def admin():
-    psw_crt = request.form.get('psw_crt')
-    psw_new = request.form.get('psw_new')
     if request.method == 'POST':
-        if psw_crt == app_settings['password']:
-            app_settings['password'] = psw_new
-            with open('app/settings.json', 'w') as f:
-                json.dump(app_settings, f)
-                f.close()
-            flash('Passcode Changed', 'success')
-        else:
-            flash('Wrong Password', 'error')
-    return render_template('multilingual/admin.html')
-
-# admin_new page
-@multilingual.route('/admin05', methods=['GET', 'POST'])
-def admin05():
-    label = request.form.get('label')
-    psw = request.form.get('pass')
-    duration = request.form.get('duration', type=int)
-    isAdmin = True if request.values.get('isAdmin') == "true" else False
-    new_pass = {
-        "label": label,
-        "pass": psw,
-        "duration": duration,
-        "isAdmin": isAdmin
-    }
-    if request.method == 'POST':
-        # for pass_dict in pass_list:
-        #     if psw != pass_dict['pass']:
-                with open('app/pass.json', 'ab+') as f:
-                    f.seek(0,2)
-                    if f.tell() == 0:
-                        f.write(json.dumps([new_pass]).encode())
-                        f.close()
-                    else:
-                        f.seek(-1,2)
-                        f.truncate()
-                        f.write(','.encode())
-                        f.write(json.dumps(new_pass, indent=4).encode())
-                        f.write(']'.encode())
-                        f.close()
-            # else:
-            #     flash('This password in already in use', 'error')
-    return render_template('multilingual/admin05.html')
-
-def admin05_2():
-    deleteLABEL = request.form.get('drop_down')
-    if request.method == 'POST':
-        for i in pass_list:
-            if deleteLABEL == passlist[i]['label']:
-                pass_list.pop(i)
-                pass_list.close()
-    return render_template('multilingual/admin05.html')
-
-
-
+        print(len(request.form.to_dict()))
+        # add option
+        if len(request.form.to_dict()) == 5:
+            passwords = pass_list
+            new_data = request.form.to_dict()
+            new_data.pop('button')
+            new_data['duration'] = int(new_data['duration'])
+            new_data['isAdmin'] = bool(new_data['isAdmin'])
+            passwords.append(new_data)
+            with open('app/pass.json', 'w') as fl:
+                json.dump(passwords, fl, indent=4)
+                fl.close()    
+        # delete option
+        elif len(request.form.to_dict()) == 2:
+            passwords = pass_list
+            label = request.form.get('label')
+            for i, pswd in enumerate(passwords):
+                if pswd['label'] == label:
+                    del passwords[i]
+            with open('app/pass.json', 'w') as fl:
+                json.dump(passwords, fl, indent=4)
+                fl.close()  
+    return render_template('multilingual/admin.html', pass_list = pass_list)
 
 # home page
 @multilingual.route('/')
@@ -124,13 +108,14 @@ def home():
 # login page
 @multilingual.route('/login', methods=['GET', 'POST'])
 def login():
-    #login with cookie
+    #login restriction with cookie
     status = request.cookies.get('status')
     if status == 'logged_in' or 'admin_logged_in':
         return redirect(url_for('multilingual.home')) 
     psw = request.form.get('psw')
     if request.method == 'POST':
-        for passwd in app_settings.values():
+        # for passwd in app_sets.values():
+        for passwd in pass_list:
             if psw == passwd['pass']:
                 if passwd['isAdmin']:
                     cookie_value = "admin_logged_in"
