@@ -44,11 +44,9 @@ counter_01 = str()
 counter_02 = str()
 counter_03 = str()
 counter_04 = str()
-with open('app/settings.json') as f:
-    app_settings = json.load(f)
+
 with open('app/pass.json') as f:
     pass_list = json.load(f)
-
 ################################################################################
 
 # admin_old page
