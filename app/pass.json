@@ -1,26 +1,32 @@
-{
-    "password_01": {
+[
+    {
         "label": "admin password",
         "pass": "dlxadmin",
         "duration": 365,
         "isAdmin": true
     },
-    "password_02": {
+    {
         "label": "internal password",
         "pass": "dlxteam",
         "duration": 365,
         "isAdmin": false
     },
-    "password_03": {
-        "label": "Workshop_Project Geras",
+    {
+        "label": "WS_Geras",
         "pass": "dlx0619",
         "duration": 1,
         "isAdmin": false
     },
-    "password_04": {
-        "label": "Workshop_Mobility", 
+    {
+        "label": "WS_Mobility",
         "pass": "dlx0622",
-        "durarion": 1,
+        "duration": 1,
         "isAdmin": false
-    } 
-}
+    },
+    {
+        "label": "WS_Scott",
+        "pass": "dlx0703",
+        "duration": 1,
+        "isAdmin": false
+    }
+]

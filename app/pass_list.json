@@ -1,0 +1,34 @@
+{
+    "data" : [
+        {
+            "label": "admin password",
+            "pass": "dlxadmin",
+            "duration": 365,
+            "isAdmin": true
+        },
+        {
+            "label": "internal password",
+            "pass": "dlxteam",
+            "duration": 365,
+            "isAdmin": false
+        },
+        {
+            "label": "WS_Geras",
+            "pass": "dlx0619",
+            "duration": 1,
+            "isAdmin": false
+        },
+        {
+            "label": "WS_Mobility", 
+            "pass": "dlx0622",
+            "duration": 1,
+            "isAdmin": false
+        },
+        {
+            "label": "WS_Scott", 
+            "pass": "dlx0703",
+            "duration": 1,
+            "isAdmin": false
+        } 
+    ]
+}

@@ -48,6 +48,7 @@ with open('app/settings.json') as f:
     app_settings = json.load(f)
 with open('app/pass.json') as f:
     pass_list = json.load(f)
+
 ################################################################################
 
 # admin_old page
@@ -119,8 +120,10 @@ def login():
             if psw == passwd['pass']:
                 if passwd['isAdmin']:
                     cookie_value = "admin_logged_in"
+                    print("admin detected")
                 else:
                     cookie_value = "logged_in"
+                    print("regular user")
                 resp = make_response(render_template('multilingual/home.html'))
                 resp.set_cookie(
                     'status',
@@ -132,8 +135,8 @@ def login():
                     secure = False,
                     )
                 return resp
-        else:
-            flash('Wrong Password', 'error')
+            else:
+                flash('Wrong Password', 'error')
     return render_template('multilingual/login.html')
 
 ##################################################################################
