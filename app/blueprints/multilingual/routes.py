@@ -99,6 +99,7 @@ def admin():
 def home():
     #login restriction with cookie
     status = request.cookies.get('status')
+    print(status)
     if status == 'logged_in' or 'admin_logged_in':
         return render_template('multilingual/home.html')
     else:
@@ -111,31 +112,32 @@ def login():
     status = request.cookies.get('status')
     if status == 'logged_in' or 'admin_logged_in':
         return redirect(url_for('multilingual.home')) 
-    psw = request.form.get('psw')
-    if request.method == 'POST':
-        # for passwd in app_sets.values():
-        for passwd in pass_list:
-            if psw == passwd['pass']:
-                if passwd['isAdmin']:
-                    cookie_value = "admin_logged_in"
-                    print("admin detected")
+    else:
+        psw = request.form.get('psw')
+        if request.method == 'POST':
+            # for passwd in app_sets.values():
+            for passwd in pass_list:
+                if psw == passwd['pass']:
+                    if passwd['isAdmin']:
+                        cookie_value = "admin_logged_in"
+                        print("admin detected")
+                    else:
+                        cookie_value = "logged_in"
+                        print("regular user")
+                    resp = make_response(render_template('multilingual/home.html'))
+                    resp.set_cookie(
+                        'status',
+                        value = cookie_value,
+                        max_age = None,
+                        expires = datetime.datetime.now() + datetime.timedelta(days=passwd['duration']),
+                        path = '/',
+                        domain = None,
+                        secure = False,
+                        )
+                    return resp
                 else:
-                    cookie_value = "logged_in"
-                    print("regular user")
-                resp = make_response(render_template('multilingual/home.html'))
-                resp.set_cookie(
-                    'status',
-                    value = cookie_value,
-                    max_age = None,
-                    expires = datetime.datetime.now() + datetime.timedelta(days=passwd['duration']),
-                    path = '/',
-                    domain = None,
-                    secure = False,
-                    )
-                return resp
-            else:
-                flash('Wrong Password', 'error')
-    return render_template('multilingual/login.html')
+                    flash('Wrong Password', 'error')
+        return render_template('multilingual/login.html')
 
 ##################################################################################
 
