@@ -77,6 +77,7 @@ def admin():
             new_data.pop('button')
             new_data['duration'] = int(new_data['duration'])
             new_data['isAdmin'] = bool(new_data['isAdmin'])
+            print(new_data['isAdmin'])
             passwords.append(new_data)
             with open('app/pass.json', 'w') as fl:
                 json.dump(passwords, fl, indent=4)
@@ -100,7 +101,7 @@ def home():
     #login restriction with cookie
     status = request.cookies.get('status')
     print(status)
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in' or status == 'admin_logged_in':
         return render_template('multilingual/home.html')
     else:
         return redirect(url_for('multilingual.login'))
@@ -110,7 +111,7 @@ def home():
 def login():
     #login restriction with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in' or status == 'admin_logged_in':
         return redirect(url_for('multilingual.home')) 
     else:
         psw = request.form.get('psw')
@@ -145,7 +146,7 @@ def login():
 def cards_home(card_type):
     #login restriction with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in' or status == 'admin_logged_in':
         switcher={
             1:'character_cards',
             2:'context_cards',
@@ -167,7 +168,7 @@ def cards_deal(cards_folder):
     files_list = []
     #login restriction with cookie
     status = request.cookies.get('status')
-    if status == 'logged_in' or 'admin_logged_in':
+    if status == 'logged_in' or status == 'admin_logged_in':
         for file in os.listdir('app/static/image/' + cards_folder):
             if file.endswith(".jpg"):
                 files_list.append(file)
