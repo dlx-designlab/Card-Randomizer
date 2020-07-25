@@ -74,10 +74,11 @@ def admin():
         if len(request.form.to_dict()) == 5:
             passwords = pass_list
             new_data = request.form.to_dict()
+            print(new_data['isAdmin'])
             new_data.pop('button')
             new_data['duration'] = int(new_data['duration'])
-            new_data['isAdmin'] = bool(new_data['isAdmin'])
-            print(new_data['isAdmin'])
+            new_data['isAdmin'] = bool(int(new_data['isAdmin']))
+        
             passwords.append(new_data)
             with open('app/pass.json', 'w') as fl:
                 json.dump(passwords, fl, indent=4)
