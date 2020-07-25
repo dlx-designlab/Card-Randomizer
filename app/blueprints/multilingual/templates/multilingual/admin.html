@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
+<div class="container_vertical">
     <!-- password table -->
     <div>
-        <h1>LOGIN-PASS LIST</h1>
-        <br>
+        <!-- <h1>LOGIN-PASS LIST</h1> -->
+        <!-- <br> -->
         <table>
             <th>LABEL</th>
             <th>PASS</th>
@@ -23,63 +23,79 @@
     </div>
     <br>
 
-    <!-- ADD/DELETE button -->
-    <button type="button" id="formButton">ADD</button>
-    <button type="button" id="deleteButton">DELETE</button>
-    <br>
-
-    <!-- add menu -->
-    <form id="form" action="/en/admin" method="post">
-        <div>
-            <div class="field">
-                <label class="label">LABEL</label>
-                <div class="control">
-                    <input id="label" name="label" class="input" type="text" placeholder="label" required>
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">PASS</label>
-                <div class="control">
-                    <input id="pass" name="pass" class="input" type="text" placeholder="pass" required>
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">DURATION</label>
-                <div class="control">
-                    <input id="duration" name="duration" class="input" type="number" placeholder="duration" min="1"
-                        max="365" required>
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">ADMIN</label>
-                <div class="control">
-                    <input id="isAdmin" name="isAdmin" class="input" type="radio" value="1">&nbsp;true
-                    <input id="isAdmin" name="isAdmin" class="input" type="radio" value="0" checked>&nbsp;false
-                </div>
-            </div>
+    <div class="container_vertical">
+        <!-- ADD/DELETE button -->
+        <div class="AD_button">
+            <button class="AD_button" type="button" id="formButton">
+                <i class="fas fa-plus-circle pm"></i>
+            </button>
+            <button class="AD_button" type="button" id="deleteButton">
+                <i class="fas fa-minus-circle pm"></i>
+            </button>
         </div>
-        <button type="submit" name="button">add</button>
-    </form>
 
-    <!-- delete menu -->
-    <form id="list" action="/en/admin" method="POST">
-        <div class="field">
-            <label class="label">LABEL</label>
-            <div class="control">
-                <select name="label" id="deletePASS">
-                    {% for pslt in pass_list %}
-                        <option value="{{ pslt.label }}">{{ pslt.label }}</option>
-                    {% endfor %}
-                </select>
-            </div> 
+        <!-- add menu -->
+        <div class="form">
+            <form id="form" action="/en/admin" method="post">
+                <div>
+                    <div class="field">
+                        <label class="label">LABEL</label>
+                        <div class="control">
+                            <input id="label" name="label" class="input" type="text" placeholder="label" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">PASS</label>
+                        <div class="control">
+                            <input id="pass" name="pass" class="input" type="text" placeholder="pass" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">DURATION</label>
+                        <div class="control">
+                            <input id="duration" name="duration" class="input" type="number" placeholder="duration" min="1"
+                                max="365" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">ADMIN</label>
+                        <div class="control">
+                            <input id="isAdmin" name="isAdmin" class="input" type="radio" value="1">&nbsp;true&emsp;
+                            <input id="isAdmin" name="isAdmin" class="input" type="radio" value="0" checked>&nbsp;false
+                        </div>
+                    </div>
+                </div>
+                <button class="enter" type="submit" name="button">add</button>
+            </form>
         </div>
-        <button type="submit" name="button">delete</button>
-    </form>
+        
+
+        <!-- delete menu -->
+        <div class="form">
+            <form id="list" action="/en/admin" method="POST">
+                <div class="field">
+                    <label class="label">LABEL</label>
+                    <div class="control">
+                        <select name="label" id="deletePASS">
+                            {% for pslt in pass_list %}
+                            <option value="{{ pslt.label }}">{{ pslt.label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <button class="enter" type="submit" name="button">delete</button>
+            </form>
+        </div> 
+
+    </div>
+
 </div>
 
 <script>
     // add menu toggle
     $(document).ready(function () {
+        // set invisible as a default
+        $('#form').toggle();
         $("#formButton").click(function () {
             $("#form").toggle();
         });
@@ -87,14 +103,16 @@
 
     // delete menu toggle
     $(document).ready(function () {
+        // set invisible as a default
+        $('#list').toggle();
         $("#deleteButton").click(function () {
             $("#list").toggle();
         });
     });
-    
+
     // object of the form
     var form = document.forms.contactForm;
-    
+
     // add form
     /* this function receives the from and sends it using ajax */
     function sendFrom(e) {
@@ -110,14 +128,14 @@
                 data: JSON.stringify(formData)
             })
 
-            .done(function(response) {
-                //if successed, reset form inputs
-                $('form : input').val('');
-            })
+                .done(function (response) {
+                    //if successed, reset form inputs
+                    $('form : input').val('');
+                })
 
-            .fail(function(response) {
-                //if failed,,,
-            });
+                .fail(function (response) {
+                    //if failed,,,
+                });
         });
     };
 </script>

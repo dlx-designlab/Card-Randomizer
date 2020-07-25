@@ -465,6 +465,116 @@ input[name="r"] {
     filter: drop-shadow(3px 3px 3px #aaa);
 }
 
+/*------------------- login-pass list -------------------*/
+/* table */
+.container_vertical {
+    width: 1024px;
+    margin: 50 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+table {
+    border-collapse: collapse;
+}
+th {
+    border-bottom: 3px solid black;
+    width: 200px;
+    height: 80px;
+    text-align: left;
+    font-size: 16px;
+}
+th, td {
+    padding: 25px;
+    /* font-family: 'Poppins', sans-serif; */
+}
+td {
+    border-bottom: 0.1px solid black;
+}
+
+/* add/delete button */
+button.AD_button {
+    margin: 10px;
+    background-color: transparent;
+    margin-left: 20px;
+    border: none;
+    cursor: pointer;
+}
+button.AD_button:focus {
+    outline: none;
+}
+.pm {
+    font-size: 2.5em;
+    transition: all 0.2s ease;
+}
+.pm:hover {
+    color: gray;
+}
+.pm:focus {
+    outline: none;
+}
+
+/* add/delete menu */
+.form {
+    margin-top: 20px;
+    display: flex;
+    text-align: center;
+}
+.field {
+    /* background-color: burlywood; */
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+.label {
+    text-align: left;
+    width: 80px;
+    margin-top: 4px;
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 14px;
+}
+.control {
+    margin: 10px 10px;
+    width: 150px;
+    display: flex;
+}
+.control input {
+    height: 25px;
+    width: auto;
+    font-size: 12px;
+    padding-left: 8px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+#deletePASS {
+    height: 25px;
+    font-size: 12px;
+    padding-left: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+button.enter {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 20px;
+    padding: 5px 15px;
+    color: #ffffff;
+    background-color: #000000;
+    border-style: none;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    }
+button.enter:hover{
+    background-color: grey;
+}
+button.enter:focus{
+    outline: none;
+}
 /*------------------- rammojammo card -------------------*/
 /*------------------- popup note -------------------*/
 /* .popup {
