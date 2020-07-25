@@ -556,7 +556,7 @@ button.AD_button:focus {
     border: 1px solid grey;
     border-radius: 5px;
 }
-button.enter {
+button.ad {
     font-family: Poppins;
     font-size: 14px;
     font-weight: bold;
@@ -569,10 +569,10 @@ button.enter {
     border-radius: 20px;
     transition: all 0.2s ease;
     }
-button.enter:hover{
+button.ad:hover{
     background-color: grey;
 }
-button.enter:focus{
+button.ad:focus{
     outline: none;
 }
 /*------------------- rammojammo card -------------------*/
