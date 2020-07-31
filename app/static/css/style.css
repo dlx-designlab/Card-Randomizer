@@ -496,7 +496,7 @@ td {
 
 /* add/delete button */
 button.AD_button {
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
     margin: 0px 20px;
     margin-bottom: 30px;
     background-color: transparent;
@@ -914,6 +914,9 @@ footer {
     .container_vertical {
         width: auto;
         margin: 50px;
+    }
+    button.AD_button {
+        transform: scale(1.4);
     }
 
 }
