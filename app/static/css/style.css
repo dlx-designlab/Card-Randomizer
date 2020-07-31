@@ -496,9 +496,10 @@ td {
 
 /* add/delete button */
 button.AD_button {
-    margin: 10px;
+    transform: scale(1.2);
+    margin: 0px 20px;
+    margin-bottom: 30px;
     background-color: transparent;
-    margin-left: 20px;
     border: none;
     cursor: pointer;
 }
@@ -525,40 +526,55 @@ button.AD_button:focus {
 .field {
     /* background-color: burlywood; */
     width: auto;
+    height: 50px;
+    margin-left: 30px;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .label {
     text-align: left;
-    width: 80px;
-    margin-top: 4px;
+    width: 100px;
+    /* margin-top: 4px;
     margin-right: 20px;
-    padding: 10px;
+    padding: 10px; */
     font-size: 14px;
 }
 .control {
     margin: 10px 10px;
-    width: 150px;
+    width: auto;
     display: flex;
+    /* justify-content: flex-start; */
 }
 .control input {
-    height: 25px;
-    width: auto;
-    font-size: 12px;
-    padding-left: 8px;
+    height: auto;
+    width: 180px;
+    font-size: 16px;
+    transform: scale(calc(14 / 16));
+    padding: 5px 10px;
     border: 1px solid grey;
     border-radius: 5px;
 }
+.control input:focus{
+    outline: none;
+}
+#isAdmin {
+    height: 20px;
+    width: 30px;
+    margin-left: 5px;
+}
 #deletePASS {
-    height: 25px;
-    font-size: 12px;
-    padding-left: 10px;
+    height: auto;
+    width: 180px;
+    font-size: 16px;
+    transform: scale(calc(14 / 16));
+    padding: 5px 10px;
     border: 1px solid grey;
     border-radius: 5px;
 }
 button.ad {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 20px;
@@ -894,6 +910,12 @@ footer {
         width: 500px;
     }
 
+    /* admin password */
+    .container_vertical {
+        width: auto;
+        margin: 50px;
+    }
+
 }
 
 .nav-active {
@@ -1028,6 +1050,23 @@ footer {
     }
     .alert_text {
         margin-top: 100px;
+    }
+
+    /* admin password */
+    .container_vertical {
+        width: auto;
+        margin: 30px;
+    }
+    th, td {
+        padding: 10px;
+        font-size: 12px;
+    } 
+    th {
+        height: 50px;
+    }
+    .label {
+        font-size: 12px;
+        width: 60px;
     }
 
     /* footer */
