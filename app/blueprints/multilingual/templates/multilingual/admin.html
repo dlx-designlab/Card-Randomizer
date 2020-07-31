@@ -78,7 +78,9 @@
                     <div class="control">
                         <select name="label" id="deletePASS">
                             {% for pslt in pass_list %}
-                            <option value="{{ pslt.label }}">{{ pslt.label }}</option>
+                                {% if not loop.first %}
+                                    <option value="{{ pslt.label }}">{{ pslt.label }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>

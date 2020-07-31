@@ -12,15 +12,9 @@
         "isAdmin": false
     },
     {
-        "label": "WS_Geras",
-        "pass": "dlx0619",
-        "duration": 1,
-        "isAdmin": false
-    },
-    {
-        "label": "WS_Mobility",
-        "pass": "dlx0622",
-        "duration": 1,
+        "label": "temporary password",
+        "pass": "dlx2020",
+        "duration": 3,
         "isAdmin": false
     },
     {

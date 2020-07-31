@@ -68,32 +68,40 @@ with open('app/pass.json') as f:
 # admin page
 @multilingual.route('/admin', methods=['GET', 'POST'])
 def admin():
-    if request.method == 'POST':
-        print(len(request.form.to_dict()))
-        # add option
-        if len(request.form.to_dict()) == 5:
-            passwords = pass_list
-            new_data = request.form.to_dict()
-            print(new_data['isAdmin'])
-            new_data.pop('button')
-            new_data['duration'] = int(new_data['duration'])
-            new_data['isAdmin'] = bool(int(new_data['isAdmin']))
-        
-            passwords.append(new_data)
-            with open('app/pass.json', 'w') as fl:
-                json.dump(passwords, fl, indent=4)
-                fl.close()    
-        # delete option
-        elif len(request.form.to_dict()) == 2:
-            passwords = pass_list
-            label = request.form.get('label')
-            for i, pswd in enumerate(passwords):
-                if pswd['label'] == label:
-                    del passwords[i]
-            with open('app/pass.json', 'w') as fl:
-                json.dump(passwords, fl, indent=4)
-                fl.close()  
-    return render_template('multilingual/admin.html', pass_list = pass_list)
+    #login restriction with cookie
+    status = request.cookies.get('status')
+    print(status)
+    if status == 'admin_logged_in':
+        #control list
+        if request.method == 'POST':
+            print(len(request.form.to_dict()))
+            # add option
+            if len(request.form.to_dict()) == 5:
+                passwords = pass_list
+                new_data = request.form.to_dict()
+                print(new_data['isAdmin'])
+                new_data.pop('button')
+                new_data['duration'] = int(new_data['duration'])
+                new_data['isAdmin'] = bool(int(new_data['isAdmin']))
+                passwords.append(new_data)
+                with open('app/pass.json', 'w') as fl:
+                    json.dump(passwords, fl, indent=4)
+                    fl.close()    
+            # delete option
+            elif len(request.form.to_dict()) == 2:
+                passwords = pass_list
+                label = request.form.get('label')
+                for i, pswd in enumerate(passwords):
+                    if pswd['label'] == label:
+                        del passwords[i]
+                with open('app/pass.json', 'w') as fl:
+                    json.dump(passwords, fl, indent=4)
+                    fl.close()  
+        return render_template('multilingual/admin.html', pass_list = pass_list)
+    else:
+        return redirect(url_for('multilingual.home'))
+
+    
 
 # home page
 @multilingual.route('/')
