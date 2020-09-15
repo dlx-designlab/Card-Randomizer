@@ -29,6 +29,24 @@
             </div>
             <p class="name">RAMMO JAMMO<br>CARD</p>
         </div>
+        <div class="block">
+            <div class="pic">
+                <a href="{{ url_for('multilingual.cards_home', card_type = 5) }}"><img src="{{ url_for('image.static', filename='extremedirection_cards/card-0.jpg') }}"></a>
+            </div>
+            <p class="name">EXTREME DIRECTION<br>CARD</p>
+        </div>
+        <div class="block">
+            <div class="pic">
+                <a href="{{ url_for('multilingual.cards_home', card_type = 6) }}"><img src="{{ url_for('image.static', filename='competitiveadvantage_cards/card-0.jpg') }}"></a>
+            </div>
+            <p class="name">COMPETITIVE ADVANTAGE<br>CARD</p>
+        </div>
+        <div class="block">
+            <div class="pic">
+                <a href="{{ url_for('multilingual.cards_home', card_type = 7) }}"><img src="{{ url_for('image.static', filename='roadsign_cards/card-0.jpg') }}"></a>
+            </div>
+            <p class="name">ROAD SIGN<br>CARD</p>
+        </div>
     </div> 
 
 {% endblock %}

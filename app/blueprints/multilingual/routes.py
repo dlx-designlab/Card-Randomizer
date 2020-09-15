@@ -151,6 +151,19 @@ def login():
 
 ##################################################################################
 
+# about page
+@multilingual.route('/about', methods=['GET', 'POST'])
+def about():
+    #login restriction with cookie
+    status = request.cookies.get('status')
+    print(status)
+    if status == 'logged_in' or status == 'admin_logged_in':
+        return render_template('multilingual/about.html')
+    else:
+        return redirect(url_for('multilingual.login'))
+
+
+# card home page
 @multilingual.route('/cards_home/<card_type>')
 def cards_home(card_type):
     #login restriction with cookie
@@ -161,6 +174,9 @@ def cards_home(card_type):
             2:'context_cards',
             3:'parameter_cards',
             4:'rammojammo_cards',
+            5:'extremedirection_cards',
+            6:'competitiveadvantage_cards',
+            7:'roadsign_cards'
         }
         cards_folder = switcher.get(int(card_type),"Invalid Card Type")
         

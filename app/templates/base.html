@@ -22,10 +22,22 @@
                 <a href="{{ url_for('multilingual.home') }}"><img class="image" src="{{ url_for('image.static', filename='DLX Design Lab Logo.png') }}"></a>
             </h1>
             <ul class="nav-links">
-                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 1) }}">character</a></li>
-                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 2) }}">context</a></li>
-                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 3) }}">parameter</a></li>
-                <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 4) }}">rammo jammo</a></li>
+                <li><a class="hover_line" href="{{ url_for('multilingual.about') }}">ABOUT</a></li>
+                <li>
+                    <a class="hover_line" href="{{ url_for('multilingual.home') }}">CARD</a>
+                    <!-- <ul>
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 1) }}">character</a></li>
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 2) }}">context</a></li>
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 3) }}">parameter</a></li>
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 4) }}">rammo jammo</a></li>        
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 5) }}">extreme direction</a></li>        
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 6) }}">competitive advantage</a></li>        
+                        <li><a class="hover_line" href="{{ url_for('multilingual.cards_home', card_type = 7) }}">road sign</a></li>        
+                    </ul> -->
+                </li>
+                <br>
+                <br>
+                <br>
                 <span class="lang">
                     <li>
                         <a href="{{ url_for(request.endpoint, lang_code='en', **request.view_args) }}">EN</a>

@@ -184,21 +184,20 @@ nav h1 {
 
 .image {
     width: 90px;
-    /* transition: 0.3s ease; */
 }
-/* .image:hover {
-    filter: drop-shadow(3px 3px 3px #aaa);
-} */
 
 .nav-links {
     display: flex;
     justify-content: flex-end;
+    height: 2rem;
     width: auto;
 }
 
 .nav-links li {
+    /* margin-top: 5px; */
     margin-left: 30px;
     list-style: none;
+    width: 65px;
 }
 
 /* menu bar text */
@@ -227,7 +226,7 @@ nav h1 {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 1.5px;
+    height: 2px;
     background: #000000;
     transition: all 0.5s ease;
 }
@@ -237,6 +236,37 @@ nav h1 {
 .hover_line:hover::after {
     width: 100%;
 }
+
+/*子階層以降共通*/
+.nav-links li li {
+    height: 0;
+    width: 200px;
+    overflow: hidden;
+    transition: .5s;
+}
+.nav-links li li a {
+    /* top: 50%; */
+    /* left: -30px; */
+}
+.nav-links li:hover > ul {
+    /* width: 200px; */
+    /* padding-top: 15px; */
+    /* padding-bottom: 10px; */
+    /* padding-left: 10px; */
+    /* background-color: #ffffffee; */
+}
+.nav-links li:hover > ul > li {
+    height: 2rem;
+    overflow: visible;
+}
+
+/* right: 120px;
+        position: absolute;
+        top: 0px;
+        width: 200px;
+        padding-bottom: 10px; */
+
+
 
 /* language picker */
 .lang a {
@@ -293,7 +323,7 @@ nav h1 {
     height: 2px;
     background-color: #000000;
     margin: 5px;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
 }
 
 
@@ -318,7 +348,7 @@ main {
 .block {
     width: auto;
     height: auto;
-    margin: 10 auto;
+    margin: 25;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -422,7 +452,15 @@ input[name="r"] {
 }
 .rammojammo_slide_img {
     height: auto;
-    width: 600px;
+    width: 500px;
+    border-radius: 15px;
+    filter: drop-shadow(3px 3px 3px #aaa);
+    position: relative;
+    z-index: 0;
+}
+.image_slide_img {
+    height: auto;
+    width: 450px;
     border-radius: 15px;
     filter: drop-shadow(3px 3px 3px #aaa);
     position: relative;
@@ -454,13 +492,19 @@ input[name="r"] {
     justify-content: center;
     padding-top: 30px;
 }
-.card_deck {
+.card_deck, .card_deck_image {
     display: flex;
     justify-content: center;
 }
 .card_deck img {
     height: 400px;
     width: auto;
+    border-radius: 15px;
+    filter: drop-shadow(3px 3px 3px #aaa);
+}
+.card_deck_image img {
+    height: auto;
+    width: 500px;
     border-radius: 15px;
     filter: drop-shadow(3px 3px 3px #aaa);
 }
@@ -855,30 +899,63 @@ footer {
         align-items: flex-end;
         width: 50%;
         transform: translateX(100%);
-        transition: transform 1.2s ease;
+        transition: transform 1s ease;
     }
 
     .nav-links li {
         opacity: 0;
-        height: 60px;
+        /* background-color: gray; */
+        height: 50px;
+        width: 100px;
         display: flex;
         align-items: center;
+        /* justify-content: flex-end; */
+        padding-left: 10px;
     }
 
     .nav-links a {
         color: #000000;
         text-decoration: none;
         letter-spacing: 1px;
-        font-weight: 200;
-        font-size: 24px;
+        font-weight: 500;
+        font-size: 22px;
     }
 
-    .lang a {
-        font-size: 16px;
+    /* 子階層以降 */
+    .nav-links li li {
+        height: 0;
+        /* background-color: gray; */
+    }
+    .nav-links li li a {
+        font-size: 20px;
+        top: -12px;
+    }
+    .nav-links li:hover > ul {
+        right: 120px;
+        position: absolute;
+        top: 0px;
+        width: 200px;
+        padding-bottom: 10px;
+        display: block;
+    }
+    .nav-links li:hover > ul > li {
+        height: 45px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        display: block;
     }
     
+    /* language picker, admin button */
+    .admin li {
+        padding-left: 5px;
+    }
+    .lang a {
+        font-size: 14px;
+    }
     .admin a {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .burger {
@@ -905,6 +982,12 @@ footer {
         width: 70%;
         margin: auto;
     }
+    .card_deck_image img {
+        height: auto;
+        width: 60%;
+        margin: auto;
+    }
+
 
     .text {
         width: 500px;
@@ -1042,6 +1125,9 @@ footer {
     .rammojammo_slide_img {
         width: 80%;
     }
+    .image_slide_img {
+        width: 300px;
+    }
     
     /* card_deal */
     .card_deal {
@@ -1051,6 +1137,10 @@ footer {
         height: 300px;
         width: auto;
     }
+    .card_deck_image img {
+        height: auto;
+        width: 80%;
+    } 
     .alert_text {
         margin-top: 100px;
     }

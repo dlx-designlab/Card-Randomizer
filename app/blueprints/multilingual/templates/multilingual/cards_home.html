@@ -56,6 +56,12 @@
     <div class="description">
         {% if cards_folder == "rammojammo_cards" %}
         <p class="title">rammo jammo card</p>
+        {% elif cards_folder == "extremedirection_cards" %}
+        <p class="title">extreme direction card</p>
+        {% elif cards_folder == "competitiveadvantage_cards" %}
+        <p class="title">competitive advantage card</p>
+        {% elif cards_folder == "roadsign_cards" %}
+        <p class="title">road sign card</p>
         {% else %}
         <p class="title">{{ card_name }}</p>    
         {% endif %}
@@ -89,6 +95,30 @@
                 {{_('e.g. you pick a super low costs card and you are thinking of a new type of kettle - can you think of an idea for a $1 kettle?')}}
             </p>
         {% elif cards_folder == "rammojammo_cards" %}
+            <p class="text">
+                {{_('Ideas don’t come from thin air - they need a seed. Especially if you want to generate and explore a super wide spectrum of ideas you need a stimulus to make your brain go there, these cards are just for that.')}}<br>
+                <br>
+                {{_('These are a very diverse range of cards, each one has an image and a set of words on the back describing the image. Look at the image and/or look at the words and let your mind create ideas inspired by the cards.')}}<br>
+                <br>
+                {{_('Rammo Jammo are great for creating ideas in the far corners of your creative space!')}}
+            </p>
+        {% elif cards_folder == "roadsign_cards" %}
+            <p class="text">
+                {{_('Ideas don’t come from thin air - they need a seed. Especially if you want to generate and explore a super wide spectrum of ideas you need a stimulus to make your brain go there, these cards are just for that.')}}<br>
+                <br>
+                {{_('These are a very diverse range of cards, each one has an image and a set of words on the back describing the image. Look at the image and/or look at the words and let your mind create ideas inspired by the cards.')}}<br>
+                <br>
+                {{_('Rammo Jammo are great for creating ideas in the far corners of your creative space!')}}
+            </p>
+        {% elif cards_folder == "extremedirection_cards" %}
+            <p class="text">
+                {{_('Ideas don’t come from thin air - they need a seed. Especially if you want to generate and explore a super wide spectrum of ideas you need a stimulus to make your brain go there, these cards are just for that.')}}<br>
+                <br>
+                {{_('These are a very diverse range of cards, each one has an image and a set of words on the back describing the image. Look at the image and/or look at the words and let your mind create ideas inspired by the cards.')}}<br>
+                <br>
+                {{_('Rammo Jammo are great for creating ideas in the far corners of your creative space!')}}
+            </p>
+        {% elif cards_folder == "competitiveadvantage_cards" %}
             <p class="text">
                 {{_('Ideas don’t come from thin air - they need a seed. Especially if you want to generate and explore a super wide spectrum of ideas you need a stimulus to make your brain go there, these cards are just for that.')}}<br>
                 <br>
@@ -134,6 +164,27 @@
                 Artwork by Yoon Bahk<br>
                 <br>
                 &copy; 2012 Yoon Bahk. All rights reserved.
+            </p>
+        {% elif cards_folder == "extremedirection_cards" %}
+            <p class="copyright_inline">
+                Concept by Yoon Bahk and Miles Pennington<br>
+                Artwork by xxx<br>
+                <br>
+                &copy; 20xx Yoon Bahk and Miles Pennington. All rights reserved.
+            </p>
+        {% elif cards_folder == "competitiveadvantage_cards" %}
+            <p class="copyright_inline">
+                Concept by Miles Pennington and Tim Corvin<br>
+                Artwork by Sheana Yu and Tim Corvin<br>
+                <br>
+                &copy; 2016 Miles Pennington and Tim Corvin. All rights reserved.
+            </p>
+        {% elif cards_folder == "roadsign_cards" %}
+            <p class="copyright_inline">
+                Concept by Miles Pennington<br>
+                Artwork by Audrey Gaulard<br>
+                <br>
+                &copy; 20xx Miles Pennington. All rights reserved.
             </p>
         {% endif %}
     </div>

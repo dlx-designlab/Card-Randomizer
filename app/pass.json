@@ -22,5 +22,11 @@
         "pass": "Sustainable",
         "duration": 1,
         "isAdmin": false
+    },
+    {
+        "label": "i.school 2020",
+        "pass": "bestideaever",
+        "duration": 14,
+        "isAdmin": false
     }
 ]
