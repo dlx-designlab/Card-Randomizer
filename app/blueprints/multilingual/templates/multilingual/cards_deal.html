@@ -22,10 +22,10 @@
                 </div>
                 <p class="alert_text">Click card to see other side</p>
             </div>   
-        <!-- {% elif cards_folder == "image_cards" %}
+        {% elif cards_folder == "image_cards" %}
             <div class="card_deck_image">
                 <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
-            </div> -->
+            </div>
         {% else %}
             <div class="card_deck">
                 <img id="imageid" src="{{ url_for('image.static', filename = cards_folder + '/card-1.jpg') }}">
