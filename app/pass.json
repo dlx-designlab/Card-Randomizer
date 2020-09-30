@@ -12,21 +12,15 @@
         "isAdmin": false
     },
     {
+        "label": "Tim Corvin",
+        "pass": "unicorn",
+        "duration": 365,
+        "isAdmin": false
+    },
+    {
         "label": "temporary password",
         "pass": "dlx2020",
         "duration": 3,
-        "isAdmin": false
-    },
-    {
-        "label": "RCA workshop",
-        "pass": "Sustainable",
-        "duration": 1,
-        "isAdmin": false
-    },
-    {
-        "label": "i.school 2020",
-        "pass": "bestideaever",
-        "duration": 14,
         "isAdmin": false
     }
 ]
