@@ -20,56 +20,98 @@ msgstr ""
 
 
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:69
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:75
 msgid "Usually you are trying to think about ideas for people right? So sometimes it is good to start with a person and think of an idea for them."
 msgstr "アイデアを考える時、たいていの場合は誰かのために考えようとしますよね？なので、まず人に着目して、その人のためのアイデアを考えていきましょう。"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:71
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:77
 msgid "Take a card, on each card there is an image of a person and a name that describes their character. None of them are normal people but rather one of a range of unusual characters."
 msgstr "カードを手に取ってみてください。それぞれのカードには人物の絵と、その人がどんな人なのかが書いてあります。ここに書かれているのはみんな一風変わった特徴を持った人達です。"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:73
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:79
 msgid "Let your imagination go to work, how does the character on the card inspire you, what ideas can you think of?"
 msgstr "そのキャラクターからどのようなアイデアが浮かんでくるか、想像力を働かせてみましょう！"
 
 
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:77
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:83
 msgid "Ideas are almost always located in a place, correct?"
 msgstr "ほとんどの場合、アイデアは「場所」と繋がりがありますよね？"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:79
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:85
 msgid "In this set of cards there are a wide range of different places and spaces, take a card and think what kind of ideas are inspired from that place. Maybe you can think of ideas specifically for that place, or the place on the card catalyzes a new idea."
 msgstr "このカードには様々な場所や空間が描かれています。カードを手に取って、そこに描かれている場所からインスピレーションを受けて思い浮かぶアイデアを考えてみましょう。その場所ならではのアイデアが浮かぶかもしれませんし、その場所から連想される新しいアイデアを思いつくかもしれません。"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:81
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:87
 msgid "There are 48 cards most are everyday spaces, but one set of 6 cards are of extreme environments."
 msgstr "ここにある48枚のカードのうち、ほとんどは日常的な空間が描かれていますが、6枚だけ極端な環境が描かれたカードが入っています。"
 
 
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:85
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:91
 msgid "These cards are useful when you already know you are designing a specific product or service (e.g. a new type of kettle, or a new type of banking service)."
 msgstr "このカードは私たちが既に知っているプロダクトやサービスをデザインする時に役立ちます。（例えば新しいタイプの湯沸かし器や、新しい銀行サービスなど。）"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:87
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:93
 msgid "Each of these cards has a different parameter on it, like price, weight, size, etc. Take a card and see if you can think of an idea that responds to that card."
 msgstr "それぞれのカードには値段、重さ、大きさ等、さまざまなパラメーター（尺度）が描かれています。カードを見て、それに応じたアイデアが浮かぶかやってみましょう。"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:89
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:95
 msgid "e.g. you pick a super low costs card and you are thinking of a new type of kettle - can you think of an idea for a $1 kettle?"
 msgstr "例えば、あなたが新しいタイプの湯沸かし器について考えていて、「超低コスト」のカードを引いたとします。 - あなたなら1ドルの湯沸かし器のためのアイデアが思いつきますか？"
 
 
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:93
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:99
 msgid "Ideas don’t come from thin air - they need a seed. Especially if you want to generate and explore a super wide spectrum of ideas you need a stimulus to make your brain go there, these cards are just for that."
 msgstr "アイデアは何もないところからは生まれません。アイデアには「種」が必要です。もしあなたがとても幅広い、いろいろなアイデアを考え、発展させたいのなら、脳への刺激が必要です。このカードはそんな時にもってこいのカードです。"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:95
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:101
 msgid "These are a very diverse range of cards, each one has an image and a set of words on the back describing the image. Look at the image and/or look at the words and let your mind create ideas inspired by the cards."
 msgstr "このカードにはさまざまな状況が書かれています。それぞれのカードの表には絵が描いてあり、裏にはその絵に関連した言葉が書いてあります。カードの絵や言葉からインスピレーションを得て、アイデアを考えてみましょう。"
 
-#: app/blueprints/multilingual/templates/multilingual/cards_home.html:97
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:103
 msgid "Rammo Jammo are great for creating ideas in the far corners of your creative space!"
 msgstr "ラモジャモカードは発想を大きく広げ、普段は思い付かないようなアイデアを考えるのにぴったりなカードです！"
+
+
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:107
+msgid "There are times when you want to quickly think of ideas in a wide variety of different directions. These cards are for those moments."
+msgstr "様々な方向からのアイデアを素早く考えたい時ってありますよね？エクストリームディレクションズカードはそんな時のためのカードです。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:109
+msgid "This set takes 5 cards from each of the Character, Parameter, and Context cards sets. Those 5 cards are the most unusual ones from each of those sets. Also, there are 5 ‘taboo’ cards that suggest a rather different way of thinking of ideas."
+msgstr "このセットは、キャラクターカード、パラメーターカード、コンテクストカードのセットからそれぞれ５枚ずつカードを取り出して作られています。それらのカードは、それぞれのセットの中で最も珍しいカードです。加えて５枚の「タブー」カードも入っており、これまでとは違ったアイデアの考え方を与えてくれます。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:111
+msgid "Together these cards send you thinking in all kind of extreme directions."
+msgstr "これらのカードを組み合わせることで、あなたの考えをあらゆる極端な方向に向かわせることができます。"
+
+
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:115
+msgid "Maybe you have an idea for what you are designing already, but you need to figure out a new way to make it stand-out in the market place."
+msgstr "デザインするもの自体のアイデアは既にあったとしても、市場で目立つようにするための新しい方法を見つけ出す必要があるかもしれません。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:117
+msgid "These cards help you generate ideas for giving your future product or service a competitive advantage. It could be through something obvious like price or it could be less tangible like adding some mysterious magic."
+msgstr "このカードは、将来の製品やサービスに競争上の優位性を与えるためのアイデアを生み出すのに役立ちます。それは、価格のような明白なものなのか、はたまた神秘的な魔法を加えるような実体のないものかもしれません。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:119
+msgid "This set of 10 cards will set you down a path to creating winning ideas."
+msgstr "この10枚のカードセットは、“勝つアイデア”を生み出すための道筋を示してくれるはずです！"
+
+
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:123
+msgid "The idea for these cards was if you want to go on a different conceptual journey then why not take inspiration from road signs that guide travellers in the real world."
+msgstr "これらカードは、「いつもと違うコンセプトの旅に出たいのなら、旅人たちを案内する道路標識からインスピレーションを得てはどうだろうか？」というアイデアから生まれたものです。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:125
+msgid "Each of these cards has a road sign and a key word/s. It might have a literal meaning or something more lateral or abstract."
+msgstr "それぞれのカードには道路標識とキーワードが描かれています。それは、文字通りの意味を持っているかもしれませんし、もっと側面的だったり抽象的な意味を持っているかもしれません。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html:127
+msgid "The cards will make you think about where you want to take your ideas. Will it be iterative development, radical improvement, or a sudden and creative left turn ahead?"
+msgstr "これらのカードは、自分のアイデアをどんな方向へ向かわせたいのか考えさせてくれます。それは反復的な開発なのか、根本的な改善なのか、それとも突然の創造的な左折なのかもしれません！"

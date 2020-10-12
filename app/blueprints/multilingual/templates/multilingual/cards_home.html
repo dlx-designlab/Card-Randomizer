@@ -54,16 +54,20 @@
     </div>
     
     <div class="description">
-        {% if cards_folder == "rammojammo_cards" %}
-        <p class="title">rammo jammo card</p>
+        {% if cards_folder == "character_cards" %}
+        <p class="title">Character Cards</p>
+        {% elif cards_folder == "context_cards" %}
+        <p class="title">Context Cards</p>
+        {% elif cards_folder == "parameter_cards" %}
+        <p class="title">Parameter Cards</p>
+        {% elif cards_folder == "rammojammo_cards" %}
+        <p class="title">Rammo Jammo Cards</p>
         {% elif cards_folder == "extremedirection_cards" %}
-        <p class="title">extreme direction card</p>
+        <p class="title">Extreme Directions Cards</p>
         {% elif cards_folder == "competitiveadvantage_cards" %}
-        <p class="title">competitive advantage card</p>
+        <p class="title">How About Making Me Cards</p>
         {% elif cards_folder == "roadsign_cards" %}
-        <p class="title">road sign card</p>
-        {% else %}
-        <p class="title">{{ card_name }}</p>    
+        <p class="title">Road Sign Cards</p>   
         {% endif %}
         <!-- <div class="text" id="TextDisplayAreaID"></div> -->
         <!-- <p class="text">
@@ -101,6 +105,30 @@
                 {{_('These are a very diverse range of cards, each one has an image and a set of words on the back describing the image. Look at the image and/or look at the words and let your mind create ideas inspired by the cards.')}}<br>
                 <br>
                 {{_('Rammo Jammo are great for creating ideas in the far corners of your creative space!')}}
+            </p>
+        {% elif cards_folder == "extremedirection_cards" %}
+            <p class="text">
+                {{_('There are times when you want to quickly think of ideas in a wide variety of different directions. These cards are for those moments.')}}<br>
+                <br>
+                {{_('This set takes 5 cards from each of the Character, Parameter, and Context cards sets. Those 5 cards are the most unusual ones from each of those sets. Also, there are 5 ‘taboo’ cards that suggest a rather different way of thinking of ideas.')}}<br>
+                <br>
+                {{_('Together these cards send you thinking in all kind of extreme directions.')}}
+            </p>
+        {% elif cards_folder == "competitiveadvantage_cards" %}
+            <p class="text">
+                {{_('Maybe you have an idea for what you are designing already, but you need to figure out a new way to make it stand-out in the market place.')}}<br>
+                <br>
+                {{_('These cards help you generate ideas for giving your future product or service a competitive advantage. It could be through something obvious like price or it could be less tangible like adding some mysterious magic.')}}<br>
+                <br>
+                {{_('This set of 10 cards will set you down a path to creating winning ideas.')}}
+            </p>
+        {% elif cards_folder == "roadsign_cards" %}
+            <p class="text">
+                {{_('The idea for these cards was if you want to go on a different conceptual journey then why not take inspiration from road signs that guide travellers in the real world.')}}<br>
+                <br>
+                {{_('Each of these cards has a road sign and a key word/s. It might have a literal meaning or something more lateral or abstract.')}}<br>
+                <br>
+                {{_('The cards will make you think about where you want to take your ideas. Will it be iterative development, radical improvement, or a sudden and creative left turn ahead?')}}
             </p>
         {% endif %}
     </div>
@@ -144,9 +172,9 @@
         {% elif cards_folder == "extremedirection_cards" %}
             <p class="copyright_inline">
                 Concept by Yoon Bahk and Miles Pennington<br>
-                Artwork by xxx<br>
+                Artwork by Yoon Bahk, Joel Trotter & Marjan Angoshtari <br>
                 <br>
-                &copy; 20xx Yoon Bahk and Miles Pennington. All rights reserved.
+                &copy; 2015 Yoon Bahk and Miles Pennington. All rights reserved.
             </p>
         {% elif cards_folder == "competitiveadvantage_cards" %}
             <p class="copyright_inline">
@@ -158,9 +186,9 @@
         {% elif cards_folder == "roadsign_cards" %}
             <p class="copyright_inline">
                 Concept by Miles Pennington<br>
-                Artwork by Audrey Gaulard<br>
+                Artwork by Yoon Bahk and Audrey Gaulard<br>
                 <br>
-                &copy; 20xx Miles Pennington. All rights reserved.
+                &copy; 2013 Miles Pennington. All rights reserved.
             </p>
         {% endif %}
     </div>
