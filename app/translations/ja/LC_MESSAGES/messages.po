@@ -77,8 +77,8 @@ msgstr "ラモジャモカードは発想を大きく広げ、普段は思い付
 
 
 #: app/blueprints/multilingual/templates/multilingual/cards_home.html:107
-msgid "There are times when you want to quickly think of ideas in a wide variety of different directions. These cards are for those moments."
-msgstr "様々な方向からのアイデアを素早く考えたい時ってありますよね？エクストリームディレクションズカードはそんな時のためのカードです。"
+msgid "There are times in the creative process when all your ideas are rubbish and you are completely stuck. These cards can set you free!"
+msgstr "創造的なプロセスにおいて、考えたアイデアが全てがダメで完全に行き詰ってしまうことがあります。このカードはそんな時に自由な発想を促してくれるカードです。"
 
 #: app/blueprints/multilingual/templates/multilingual/cards_home.html:109
 msgid "This set takes 5 cards from each of the Character, Parameter, and Context cards sets. Those 5 cards are the most unusual ones from each of those sets. Also, there are 5 ‘taboo’ cards that suggest a rather different way of thinking of ideas."
