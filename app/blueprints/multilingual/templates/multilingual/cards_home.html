@@ -67,7 +67,9 @@
         {% elif cards_folder == "competitiveadvantage_cards" %}
         <p class="title">How About Making Me Cards</p>
         {% elif cards_folder == "roadsign_cards" %}
-        <p class="title">Road Sign Cards</p>   
+        <p class="title">Road Sign Cards</p>
+        {% elif cards_folder == "mobility_cards" %}
+        <p class="title">Mobility Cards</p>
         {% endif %}
         <!-- <div class="text" id="TextDisplayAreaID"></div> -->
         <!-- <p class="text">
@@ -129,6 +131,14 @@
                 {{_('Each of these cards has a road sign and a key word/s. It might have a literal meaning or something more lateral or abstract.')}}<br>
                 <br>
                 {{_('The cards will make you think about where you want to take your ideas. Will it be iterative development, radical improvement, or a sudden and creative left turn ahead?')}}
+            </p>
+        {% elif cards_folder == "mobility_cards" %}
+            <p class="text">
+                {{_('Are you designing for future mobility? These cards can help you ideate!')}}<br>
+                <br>
+                {{_('The cards are divided into three categories: Technology, Values, and audiences. The goal is to infuse fresh and relevant ideas for future transportation growing needs.')}}<br>
+                <br>
+                {{_('There are two ways to use the cards. Use one card at a time, or combine one of each category in order to develop a more focused scenario.')}}
             </p>
         {% endif %}
     </div>

@@ -176,7 +176,8 @@ def cards_home(card_type):
             4:'rammojammo_cards',
             5:'extremedirection_cards',
             6:'competitiveadvantage_cards',
-            7:'roadsign_cards'
+            7:'roadsign_cards',
+            8:'mobility_cards'
         }
         cards_folder = switcher.get(int(card_type),"Invalid Card Type")
         

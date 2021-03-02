@@ -115,3 +115,17 @@ msgstr "それぞれのカードには道路標識とキーワードが描かれ
 #: app/blueprints/multilingual/templates/multilingual/cards_home.html:127
 msgid "The cards will make you think about where you want to take your ideas. Will it be iterative development, radical improvement, or a sudden and creative left turn ahead?"
 msgstr "これらのカードは、自分のアイデアをどんな方向へ向かわせたいのか考えさせてくれます。それは反復的な開発なのか、根本的な改善なのか、それとも突然の創造的な左折なのかもしれません！"
+
+
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html
+msgid "Are you designing for future mobility? These cards can help you ideate!"
+msgstr "未来のモビリティに関するデザインなら、これらのカードがあなたのアイディエーションを助けてくれるでしょう！"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html
+msgid "The cards are divided into three categories: Technology, Values, and audiences. The goal is to infuse fresh and relevant ideas for future transportation growing needs."
+msgstr "カードは「技術」「価値観」「聴衆」の3つのカテゴリーに分かれています。これらを用いて、未来の交通機関が担っていくニーズについての、斬新で関連性のあるアイデアを注入することを目指します。"
+
+#: app/blueprints/multilingual/templates/multilingual/cards_home.html
+msgid "There are two ways to use the cards. Use one card at a time, or combine one of each category in order to develop a more focused scenario."
+msgstr "カードの使い方は2通りあります。1度に1枚ずつカードを使うか、各カテゴリーのカードを組わせてより限定的なシナリオを作り出すこともできます。"
