@@ -387,6 +387,47 @@ main {
     align-items: center;
 }
 
+
+/*------------------- about page --------------------*/
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.grid {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.pic_square {
+    width: 250px;
+    height: 250px;
+    margin: 10;
+}
+
+.number {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 16px;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 10px;
+    font-weight: 600;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.603);
+}
+
+.steps {
+    width: 250px;
+    margin-top: 30;
+}
+
 /*------------------- image slider -------------------*/
 .body {
     height: auto;
@@ -1112,6 +1153,26 @@ footer {
         width: 100%;
         padding-left: 40px;
         padding-right: 40px;
+    }
+
+    /* about */
+    .grid {
+        width: 300px;
+    }
+
+    .number {
+        margin-top: 10;
+        margin-left: 10;
+    }
+
+    .pic_square {
+        width: 120px;
+        height: 120px;
+        margin: 5;
+    }
+
+    .steps {
+        width: 90%;
     }
 
     /* card_home */

@@ -2,29 +2,32 @@
 
 {% block content %}    
     <div class="container">
-        <p>coming soon...</p>
-        <!-- <div>
-            <div>
+        <div class="about">
+            <p class="title">How to Use</p>
+            <div class="grid">
                 <div>
-                    <img src="" alt="">
-                    <p>description here</p>
+                    <p class="number">1</p>
+                    <img class="pic_square" src="{{ url_for('image.static', filename = '00_how_to_use/1.jpg') }}" alt="">
                 </div>
                 <div>
-                    <img src="" alt="">
-                    <p>description here</p>
+                    <p class="number">2</p>
+                    <img class="pic_square" src="{{ url_for('image.static', filename = '00_how_to_use/2.jpg') }}" alt="">
                 </div>
                 <div>
-                    <img src="" alt="">
-                    <p>description here</p>
+                    <p class="number">3</p>
+                    <img class="pic_square" src="{{ url_for('image.static', filename = '00_how_to_use/3.jpg') }}" alt="">
                 </div>
                 <div>
-                    <img src="" alt="">
-                    <p>description here</p>
+                    <p class="number">4</p>
+                    <img class="pic_square" src="{{ url_for('image.static', filename = '00_how_to_use/4.jpg') }}" alt="">
                 </div>
             </div>
-            <div>
-                <p>how it works, short introduction of ideation card!</p>
+            <div class="steps">
+                <p class="text">1. When you are stuck for ideas...</p>
+                <p class="text">2. Pick up a card!</p>
+                <p class="text">3. Be inspired and let your brain wander...</p>
+                <p class="text">4. Generate and capture your idea!</p>
             </div>
-        </div> -->
+        </div>
     </div> 
 {% endblock %}
